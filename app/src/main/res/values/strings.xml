@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sirius</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="internet_error_message">Ошибка соединения. Проверьте адрес сервера и/или подключение к сети</string>
+    <string name="http_error_message">Произошла ошибка. Попробуйте повторить позднее</string>
 </resources>
