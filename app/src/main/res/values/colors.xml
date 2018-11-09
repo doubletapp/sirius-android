@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
+    <color name="colorAccent">#84A2E3</color>
+
+    <color name="vk_button_background">#8aa2de</color>
+    <color name="vk_button_background_pressed">#5974ac</color>
+
+    <color name="white">@android:color/white</color>
+    <color name="text_dark_gray">#4a4a4a</color>
+    <color name="text_light_gray">#a9a9ba</color>
+
+    <color name="bottom_navigation_tint">#e1e0e0</color>
 </resources>
