@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#FAFAFA</color>
+    <color name="colorAccent">#84A2E3</color>
+
+    <color name="white">@android:color/white</color>
+
+    <!-- custom views and drawables colors -->
+    <color name="btnRoundedBackgroundColor">@color/colorAccent</color>
+    <color name="survey_calendar_border_color">#e9eff4</color>
+    <color name="survey_calendar_background_color">#66f4f7f9</color>
+    <!---->
 </resources>

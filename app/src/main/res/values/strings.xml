@@ -5,4 +5,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="internet_error_message">Ошибка соединения. Проверьте адрес сервера и/или подключение к сети</string>
     <string name="http_error_message">Произошла ошибка. Попробуйте повторить позднее</string>
+
+    <!--survey-->
+    <string name="end_test">Закончить тест</string>
+    <string name="survey_next">Дальше</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="your_bdate">Дата рождения</string>
+    <string name="your_town">Город</string>
+    <string name="your_role">Статус</string>
+    <string name="survey_question_title">Шаг %d</string>
 </resources>
