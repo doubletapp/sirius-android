@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FAFAFA</color>
-    <color name="colorPrimaryDark">#FAFAFA</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
     <color name="colorAccent">#84A2E3</color>
 
+    <color name="vk_button_background">#8aa2de</color>
+    <color name="vk_button_background_pressed">#5974ac</color>
+
     <color name="white">@android:color/white</color>
+
+    <!--text colors-->
+    <color name="text_dark_gray">#4a4a4a</color>
+    <color name="text_light_gray">#a9a9ba</color>
+    <!---->
 
     <!-- custom views and drawables colors -->
     <color name="btnRoundedBackgroundColor">@color/colorAccent</color>
     <color name="survey_calendar_border_color">#e9eff4</color>
     <color name="survey_calendar_background_color">#66f4f7f9</color>
+    <color name="bottom_navigation_tint">#e1e0e0</color>
     <!---->
+
 </resources>

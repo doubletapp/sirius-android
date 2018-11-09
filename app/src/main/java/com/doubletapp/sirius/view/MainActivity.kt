@@ -3,10 +3,12 @@ package com.doubletapp.sirius.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.bottomnavigation.LabelVisibilityMode
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.base.BaseActivity
 import com.doubletapp.sirius.extensions.showFragment
 import com.doubletapp.sirius.presentation.MainViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -36,5 +38,6 @@ class MainActivity : BaseActivity() {
             JustFragment.TAG,
             false
         )
+        main_bottom_navigation.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
     }
 }
