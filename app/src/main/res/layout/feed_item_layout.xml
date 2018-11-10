@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingStart="20dp"
+    android:paddingTop="9dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="9dp">
+
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/feedItemImageLayout"
+        android:layout_width="119dp"
+        android:layout_height="119dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/feedItemImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="5dp"
+            tools:src="@tools:sample/backgrounds/scenic" />
+    </android.support.design.card.MaterialCardView>
+
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/feedItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="147dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="5dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/feedItemImageLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/feedItemStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_feed_star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="367"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/feedItemStar"
+                app:layout_constraintStart_toEndOf="@id/feedItemStar"
+                app:layout_constraintTop_toTopOf="@id/feedItemStar" />
+
+            <ImageView
+                android:id="@+id/feedItemComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:src="@drawable/ic_feed_comment"
+                app:layout_constraintBottom_toBottomOf="@id/feedItemStar"
+                app:layout_constraintStart_toEndOf="@id/feedItemStar"
+                app:layout_constraintTop_toTopOf="@id/feedItemStar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="72"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/feedItemComment"
+                app:layout_constraintStart_toEndOf="@id/feedItemComment"
+                app:layout_constraintTop_toTopOf="@id/feedItemComment" />
+
+            <TextView
+                android:id="@+id/feedItemData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="119dp"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="30.10.18"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/feedItemText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="Сколтех-Сириус: программа индивидуального тьюторинга «турбо-сайнс»"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/feedItemData"
+                app:layout_constraintTop_toBottomOf="@id/feedItemData" />
+
+            <TextView
+                android:id="@+id/feedItemSubText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="Сколтех-Сириус: программа индивидуального тьюторинга «турбо-сайнс»"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="@id/feedItemText"
+                app:layout_constraintStart_toStartOf="@id/feedItemText"
+                app:layout_constraintTop_toBottomOf="@id/feedItemText" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
+
+</android.support.constraint.ConstraintLayout>

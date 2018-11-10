@@ -9,7 +9,9 @@ import android.support.constraint.ConstraintSet
 import android.transition.TransitionManager
 import android.view.View
 import com.doubletapp.sirius.R
+import com.doubletapp.sirius.base.BaseActivity
 import com.doubletapp.sirius.extensions.toast
+import com.doubletapp.sirius.presentation.SplashViewModel
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
 import com.vk.sdk.VKSdk
@@ -17,7 +19,7 @@ import com.vk.sdk.api.VKError
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     companion object {
         fun start(context: Context) {
@@ -33,13 +35,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var splashActivity: SplashActivity
+    lateinit var splashViewModel: SplashViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContentView(R.layout.activity_splash)
-        if (!VKSdk.isLoggedIn()) {
+        if (!splashViewModel.isLoggedIn()) {
             Handler().postDelayed({ showAuth() }, 1000)
         } else {
             Handler().postDelayed({ MainActivity.start(this) }, 1000)
@@ -57,7 +59,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
-                    MainActivity.start(baseContext)
+                    splashViewModel.login(res.userId, res.accessToken, "1", "1", "", this@SplashActivity)
                 }
                 override fun onError(error: VKError) {}
             })
