@@ -36,5 +36,12 @@ class ProfileFragment : BaseFragment() {
                     TestChangeFragment.TAG,
                     true)
         }
+        profileRepeatTest.setOnClickListener {
+            val fragment = SwipeTestLayout()
+            showFragment(android.R.id.content,
+                fragment,
+                fragment.javaClass.simpleName,
+                true)
+        }
     }
 }
