@@ -20,12 +20,6 @@
             android:title="@string/bottom_navigation_traces"
             app:showAsAction="ifRoom" />
     <item
-            android:id="@+id/bottom_navigation_courses_item"
-            android:enabled="true"
-            android:icon="@drawable/ic_bottom_courses"
-            android:title="@string/bottom_navigation_courses"
-            app:showAsAction="ifRoom" />
-    <item
             android:id="@+id/bottom_navigation_settings_item"
             android:enabled="true"
             android:icon="@drawable/ic_bottom_settings"
