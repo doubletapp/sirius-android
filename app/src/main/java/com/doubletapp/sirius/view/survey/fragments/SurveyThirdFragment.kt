@@ -76,10 +76,11 @@ class SurveyThirdFragment : SurveyBaseFragment() {
                     Pair("Биология", R.drawable.ic_biology),
                     Pair("Космос", R.drawable.ic_space))
         } else {
-            adapter.items = mutableListOf(Pair("Элемент", R.drawable.ic_physic),
-                    Pair("Элемент", R.drawable.ic_physic),
-                    Pair("Элемент", R.drawable.ic_physic),
-                    Pair("Элемент", R.drawable.ic_physic),
+            adapter.singleSelection = true
+            adapter.items = mutableListOf(Pair("Элемент1", R.drawable.ic_physic),
+                    Pair("Элемент2", R.drawable.ic_physic),
+                    Pair("Элемент3", R.drawable.ic_physic),
+                    Pair("Элемен4", R.drawable.ic_physic),
                     Pair("Стать Илоном Маском", R.drawable.ic_space))
         }
     }

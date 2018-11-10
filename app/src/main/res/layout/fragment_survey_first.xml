@@ -97,15 +97,14 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp" />
 
-            <EditText
-                android:id="@+id/surveyFirstTown"
+            <AutoCompleteTextView
+                android:id="@+id/surveyFirstRegion"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/edittext_rounded_stroke_drawable"
                 android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:spinnerMode="dropdown"
                 android:textColor="@color/text_dark_gray"
                 android:textSize="14sp" />
         </LinearLayout>

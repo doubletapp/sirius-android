@@ -34,6 +34,6 @@
     <string name="your_role">Статус</string>
     <string name="survey_question_title">Шаг %d</string>
     <string name="learn_place">Где ты учишься?</string>
-    <string name="subject_title">Выбрано направление /\"%s/\"</string>
+    <string name="subject_title">Выбрано направление \"%s\"</string>
     <string name="goal_title">Выберите цель</string>
 </resources>

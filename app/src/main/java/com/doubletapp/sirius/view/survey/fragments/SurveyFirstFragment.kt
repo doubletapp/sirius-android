@@ -3,19 +3,15 @@ package com.doubletapp.sirius.view.survey.fragments
 import android.app.DatePickerDialog
 import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.doubletapp.sirius.R
-import com.doubletapp.sirius.base.BaseFragment
-import com.doubletapp.sirius.presentation.survey.SurveyViewModel
 import com.doubletapp.sirius.view.survey.SurveyActivity
 import com.vk.sdk.api.model.VKApiUserFull
 import kotlinx.android.synthetic.main.fragment_survey_first.*
 import java.util.*
-import javax.inject.Inject
 
 class SurveyFirstFragment() : SurveyBaseFragment() {
 
@@ -31,7 +27,12 @@ class SurveyFirstFragment() : SurveyBaseFragment() {
             } else {
                 model.survey.name
             })
-            surveyFirstTown.setText(if (model.survey.city.isEmpty()) {
+
+            val regionAdapter = ArrayAdapter<String>(context, R.layout.survey_spinner_dropdown_item, mutableListOf("Свердловская область",
+                    "Курганская область", "Ленинградская область"))
+            surveyFirstRegion.threshold = 1
+            surveyFirstRegion.setAdapter(regionAdapter)
+            surveyFirstRegion.setText(if (model.survey.city.isEmpty()) {
                 user.city.title
             } else {
                 model.survey.city
@@ -58,10 +59,10 @@ class SurveyFirstFragment() : SurveyBaseFragment() {
         }
     }
 
-    override fun onNextPressed() : Boolean {
+    override fun onNextPressed(): Boolean {
         model.survey.name = surveyFirstName.text.toString()
         model.survey.bdate = surveyFirstDateValue.text.toString()
-        model.survey.city = surveyFirstTown.text.toString()
+        model.survey.city = surveyFirstRegion.text.toString()
         model.survey.role = surveyFirstRole.selectedItem.toString()
         return true
     }
