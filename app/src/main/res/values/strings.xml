@@ -36,4 +36,19 @@
     <string name="learn_place">Где ты учишься?</string>
     <string name="subject_title">Выбрано направление \"%s\"</string>
     <string name="goal_title">Выберите цель</string>
+    <string name="survey_class">В каком классе?</string>
+    <string name="physics">Физика</string>
+    <string name="chemistry">Химия</string>
+    <string name="math">Математика</string>
+    <string name="biology">Биология</string>
+    <string name="space">Космос</string>
+    <string name="survey_area_error">Пожалуйста, выберите область</string>
+    <string name="survey_class_error">Пожалуйста, выберите класс</string>
+    <string name="survey_not_math_error">Раздел в разработке. Пожалуйста, выберите раздел \"Математика\"</string>
+    <string name="survey_selection_error">Раздел в разработке. Пожалуйста, выберите \"Наука\"</string>
+    <string name="goal_one">Прокачаться в науке</string>
+    <string name="goal_mask">Стать Илоном Маском</string>
+    <string name="goal_two">Подготовиться к олимпиаде</string>
+    <string name="goal_three">Поступить в университет</string>
+    <string name="goal_four">Устроиться на работу</string>
 </resources>

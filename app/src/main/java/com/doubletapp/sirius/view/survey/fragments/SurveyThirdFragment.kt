@@ -1,5 +1,6 @@
 package com.doubletapp.sirius.view.survey.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
@@ -17,6 +18,8 @@ enum class SelectionType(val value: Int) {
 
 class SurveyThirdFragment : SurveyBaseFragment() {
 
+    val adapter = AreasAdapter()
+
     companion object {
         private val ARGS_TYPE: String = "type"
 
@@ -32,11 +35,15 @@ class SurveyThirdFragment : SurveyBaseFragment() {
     var type: SelectionType = SelectionType.SUBJECT
 
 
-    override fun onNextPressed() : Boolean {
+    override fun onNextPressed(): Boolean {
         if (type == SelectionType.SUBJECT) {
-
+            if (adapter.checkedIdx != 2) {
+                showError(getString(R.string.survey_not_math_error))
+                return false
+            }
+            model.survey.subject = adapter.items[adapter.checkedIdx].first
         } else {
-
+            model.survey.goal = adapter.items[adapter.checkedIdx].first
         }
         return true
     }
@@ -63,25 +70,31 @@ class SurveyThirdFragment : SurveyBaseFragment() {
         } else {
             getString(R.string.goal_title)
         }
-
-        val adapter = AreasAdapter()
         adapter.singleSelection = false
         surveyThirdRecycler.layoutManager = GridLayoutManager(context, 2)
         surveyThirdRecycler.adapter = adapter
+        adapter.singleSelection = true
 
         if (type == SelectionType.SUBJECT) {
-            adapter.items = mutableListOf(Pair("Физика", R.drawable.ic_physic),
-                    Pair("Химия", R.drawable.ic_chemistry),
-                    Pair("Математика", R.drawable.ic_math),
-                    Pair("Биология", R.drawable.ic_biology),
-                    Pair("Космос", R.drawable.ic_space))
+            adapter.items = mutableListOf(Pair(getString(R.string.physics), R.drawable.ic_physic_selector),
+                    Pair(getString(R.string.chemistry), R.drawable.ic_chemistry_selector),
+                    Pair(getString(R.string.math), R.drawable.ic_math_selector),
+                    Pair(getString(R.string.biology), R.drawable.ic_biology_selector),
+                    Pair(getString(R.string.space), R.drawable.ic_space_selector))
         } else {
-            adapter.singleSelection = true
-            adapter.items = mutableListOf(Pair("Элемент1", R.drawable.ic_physic),
-                    Pair("Элемент2", R.drawable.ic_physic),
-                    Pair("Элемент3", R.drawable.ic_physic),
-                    Pair("Элемен4", R.drawable.ic_physic),
-                    Pair("Стать Илоном Маском", R.drawable.ic_space))
+            adapter.items = mutableListOf(Pair(getString(R.string.goal_one), R.drawable.ic_physic),
+                    Pair(getString(R.string.goal_two), R.drawable.ic_physic),
+                    Pair(getString(R.string.goal_three), R.drawable.ic_physic),
+                    Pair(getString(R.string.goal_four), R.drawable.ic_physic),
+                    Pair(getString(R.string.goal_mask), R.drawable.ic_space))
         }
+    }
+
+    private fun showError(message: String) {
+        AlertDialog.Builder(context)
+                .setMessage(message)
+                .setCancelable(true)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
     }
 }

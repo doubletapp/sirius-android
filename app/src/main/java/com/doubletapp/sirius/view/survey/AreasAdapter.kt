@@ -52,7 +52,6 @@ class AreasAdapter : RecyclerView.Adapter<AreasAdapter.AreaViewHolder>() {
                 itemView.isSelected = position == checkedIdx
             else
                 itemView.isSelected = checked.contains(item.first)
-            itemView.areasOfInterestMainTitle.setTextColor(R.drawable.recycler_item_selectable_text_color)
             itemView.areasOfInterestMainTitle.text = item.first
             itemView.areasOfInterestMainTitle.setCompoundDrawablesWithIntrinsicBounds(0, item.second, 0, 0)
             itemView.areasOfInterestIndicator.visibility = if (itemView.isSelected) {
@@ -60,6 +59,14 @@ class AreasAdapter : RecyclerView.Adapter<AreasAdapter.AreaViewHolder>() {
             } else {
                 GONE
             }
+
+            //cause selector not working
+
+            itemView.areasOfInterestMainTitle.setTextColor(itemView.context.getColor(if (itemView.isSelected) {
+                R.color.white
+            } else {
+                R.color.text_dark_gray
+            }))
 
             itemView.setOnClickListener {
                 if (singleSelection)

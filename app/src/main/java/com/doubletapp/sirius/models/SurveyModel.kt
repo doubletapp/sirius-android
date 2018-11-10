@@ -7,6 +7,10 @@ class SurveyModel(var name: String = "",
                   var city: String = "",
                   var role: String = "",
                   var educationInstitution: String = "",
-                  var direction: Sphere = Sphere.UNDEFINED) {
+                  var classNumber: Int = 1,
+                  var direction: Sphere = Sphere.UNDEFINED,
+                  var subject: String = "",
+                  var goal: String = ""
+                  ) {
 
 }

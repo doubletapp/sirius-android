@@ -14,25 +14,39 @@ import com.doubletapp.sirius.view.survey.SurveyActivity
 import kotlinx.android.synthetic.main.fragment_survey_second.*
 
 class SurveySecondFragment : SurveyBaseFragment() {
+    private val adapter = AreasAdapter()
 
-    override fun onNextPressed() : Boolean {
+    override fun onNextPressed(): Boolean {
         val idx = (surveySecondRecycler.adapter as AreasAdapter).getCurrentSphere()
-        if (idx <0 || Sphere.values()[idx] == Sphere.UNDEFINED) {
-            AlertDialog.Builder(context)
-                    .setMessage("Пожалуйста, выберите область")
-                    .setCancelable(true)
-                    .setPositiveButton(android.R.string.ok, null)
-                    .show()
+        if (idx < 0 || Sphere.values()[idx] == Sphere.UNDEFINED) {
+            showError(getString(R.string.survey_area_error))
+            return false
+        }
+        if (surveySecondClass.text.toString().isEmpty()) {
+            showError(getString(R.string.survey_class_error))
+            return false
+        }
+        if (adapter.checkedIdx != 0) {
+            showError((getString(R.string.survey_selection_error)))
             return false
         }
         model.survey.educationInstitution = surveySecondEducation.selectedItem.toString()
         model.survey.direction = Sphere.values()[(surveySecondRecycler.adapter as AreasAdapter).getCurrentSphere()]
+        model.survey.classNumber = Integer.parseInt(surveySecondClass.text.toString())
         return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = (activity as SurveyActivity).model
+    }
+
+    private fun showError(message: String) {
+        AlertDialog.Builder(context)
+                .setMessage(message)
+                .setCancelable(true)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
     }
 
     override fun onCreateView(
@@ -54,7 +68,6 @@ class SurveySecondFragment : SurveyBaseFragment() {
                 it == model.survey.educationInstitution
             })
 
-        val adapter = AreasAdapter()
 
         surveySecondRecycler.layoutManager = GridLayoutManager(context, 2)
         surveySecondRecycler.adapter = adapter

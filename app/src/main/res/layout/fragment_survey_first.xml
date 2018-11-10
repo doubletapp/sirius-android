@@ -34,6 +34,7 @@
                 android:background="@drawable/edittext_rounded_stroke_drawable"
                 android:paddingEnd="16dp"
                 android:paddingStart="16dp"
+                android:lines="1"
                 android:textColor="@color/text_dark_gray"
                 android:textSize="14sp"
                 tools:text="Bla bla" />
@@ -105,6 +106,7 @@
                 android:background="@drawable/edittext_rounded_stroke_drawable"
                 android:paddingEnd="16dp"
                 android:paddingStart="16dp"
+                android:lines="1"
                 android:textColor="@color/text_dark_gray"
                 android:textSize="14sp" />
         </LinearLayout>
