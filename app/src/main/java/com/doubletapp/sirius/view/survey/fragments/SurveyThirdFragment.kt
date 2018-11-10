@@ -6,10 +6,12 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.view.survey.AreasAdapter
 import com.doubletapp.sirius.view.survey.SurveyActivity
 import kotlinx.android.synthetic.main.fragment_survey_third.*
+import kotlinx.android.synthetic.main.layout_dialog_select.view.*
 
 enum class SelectionType(val value: Int) {
     SUBJECT(0),
@@ -18,7 +20,9 @@ enum class SelectionType(val value: Int) {
 
 class SurveyThirdFragment : SurveyBaseFragment() {
 
-    val adapter = AreasAdapter()
+    private val adapter = AreasAdapter()
+    var isSecondGoalNeed = false
+    var goal = Pair("", "")
 
     companion object {
         private val ARGS_TYPE: String = "type"
@@ -43,7 +47,16 @@ class SurveyThirdFragment : SurveyBaseFragment() {
             }
             model.survey.subject = adapter.items[adapter.checkedIdx].first
         } else {
-            model.survey.goal = adapter.items[adapter.checkedIdx].first
+            if (goal.first.isEmpty()) {
+                showError(getString(R.string.survey_empty_first_goal_error))
+                return false
+            }
+            if (isSecondGoalNeed && goal.second.isEmpty()) {
+                //todo another error
+                showError(getString(R.string.survey_empty_first_goal_error))
+                return false
+            }
+            model.survey.goal = goal
         }
         return true
     }
@@ -87,6 +100,30 @@ class SurveyThirdFragment : SurveyBaseFragment() {
                     Pair(getString(R.string.goal_three), R.drawable.ic_physic),
                     Pair(getString(R.string.goal_four), R.drawable.ic_physic),
                     Pair(getString(R.string.goal_mask), R.drawable.ic_space))
+            adapter.listener = object : AreasAdapter.OnSelectionListener {
+                override fun itemSelected(position: Int) {
+                    goal = Pair(adapter.items[position].first, "")
+                    when (position) {
+                        0, 4 -> {
+                            isSecondGoalNeed = false
+                        }
+                        1 -> {
+                            isSecondGoalNeed = true
+                            showCreateCategoryDialog(getString(R.string.select_dialog_olymp_title), mutableListOf("Всероссийская олимпиада школьников по математике",
+                                    "Всероссийская олимпиада школьников по физике"))
+                        }
+                        2 -> {
+                            isSecondGoalNeed = true
+                            showCreateCategoryDialog(getString(R.string.select_dialog_university_title), mutableListOf("УрФУ", "УрГУ", "МГУ"))
+                        }
+                        3 -> {
+                            isSecondGoalNeed = true
+                            showCreateCategoryDialog(getString(R.string.select_dialog_job_title), mutableListOf("Doubletapp", "Doubletapp", "Doubletapp"))
+
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -96,5 +133,31 @@ class SurveyThirdFragment : SurveyBaseFragment() {
                 .setCancelable(true)
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
+    }
+
+    private fun showCreateCategoryDialog(title: String, list: MutableList<String>) {
+        val context = this
+        val builder = AlertDialog.Builder(this.context)
+
+
+        val view = layoutInflater.inflate(R.layout.layout_dialog_select, null)
+        builder.setView(view)
+
+        val dialogAdapter = ArrayAdapter<String>(this.context, R.layout.survey_spinner_dropdown_item, list)
+
+        view.dialogSelectInputField.threshold = 1
+        view.dialogSelectInputField.setAdapter(dialogAdapter)
+        view.dialogSelectTitleField.text = title
+
+        // set up the ok button
+        builder.setPositiveButton(android.R.string.ok) { dialog, p1 ->
+            goal = Pair(goal.first, view.dialogSelectInputField.text.toString())
+        }
+
+        builder.setNegativeButton(android.R.string.cancel) { dialog, p1 ->
+            dialog.dismiss()
+        }
+
+        builder.show();
     }
 }

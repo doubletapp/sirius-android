@@ -22,6 +22,7 @@ class AreasAdapter : RecyclerView.Adapter<AreasAdapter.AreaViewHolder>() {
     var singleSelection = true
     var checkedIdx = -1
     var checked: MutableList<String> = mutableListOf()
+    var listener: OnSelectionListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AreaViewHolder {
         return AreaViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_areas_of_interest, parent, false))
@@ -61,7 +62,6 @@ class AreasAdapter : RecyclerView.Adapter<AreasAdapter.AreaViewHolder>() {
             }
 
             //cause selector not working
-
             itemView.areasOfInterestMainTitle.setTextColor(itemView.context.getColor(if (itemView.isSelected) {
                 R.color.white
             } else {
@@ -69,9 +69,10 @@ class AreasAdapter : RecyclerView.Adapter<AreasAdapter.AreaViewHolder>() {
             }))
 
             itemView.setOnClickListener {
-                if (singleSelection)
+                if (singleSelection) {
                     checkedIdx = position
-                else {
+                    listener?.itemSelected(checkedIdx)
+                } else {
                     if (itemView.isSelected) {
                         checked.remove(item.first)
                     } else {
@@ -81,5 +82,9 @@ class AreasAdapter : RecyclerView.Adapter<AreasAdapter.AreaViewHolder>() {
                 notifyDataSetChanged()
             }
         }
+    }
+
+    public interface OnSelectionListener {
+        fun itemSelected(position: Int)
     }
 }

@@ -10,7 +10,7 @@ class SurveyModel(var name: String = "",
                   var classNumber: Int = 1,
                   var direction: Sphere = Sphere.UNDEFINED,
                   var subject: String = "",
-                  var goal: String = ""
+                  var goal: Pair<String, String> = Pair("","")
                   ) {
 
 }
