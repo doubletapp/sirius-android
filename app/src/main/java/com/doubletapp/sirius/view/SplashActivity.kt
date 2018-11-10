@@ -1,5 +1,6 @@
 package com.doubletapp.sirius.view
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,13 +15,24 @@ import com.doubletapp.sirius.view.survey.SurveyActivity
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
 import com.vk.sdk.VKSdk
-import com.vk.sdk.api.VKApi
 import com.vk.sdk.api.VKError
-import com.vk.sdk.util.VKUtil
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity() {
+
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, SplashActivity::class.java)
+            context.startActivity(
+                    intent.setFlags(
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    )
+            )
+        }
+    }
 
     @Inject
     lateinit var splashActivity: SplashActivity
@@ -38,9 +50,7 @@ class SplashActivity : AppCompatActivity() {
                 Handler().postDelayed({ MainActivity.start(this) }, 1000)
             }
         }
-        splash_auth_vk_button.setOnClickListener {
-            Log.d("!!!", VKUtil.getCertificateFingerprint(this, this.packageName)[0])
-            VKSdk.login(this, "friends", "offline", "groups") }
+        splash_auth_vk_button.setOnClickListener { VKSdk.login(this, "friends", "offline", "groups") }
     }
 
     private fun showAuth() {
@@ -62,7 +72,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
-                    toast(res.accessToken + res.email)
                     showNextStep()
                 }
                 override fun onError(error: VKError) {}

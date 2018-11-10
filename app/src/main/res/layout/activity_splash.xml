@@ -183,7 +183,7 @@
         android:background="@drawable/white_button_rounded_background"
         android:text="@string/splash_auth_enter_button"
         android:textColor="@color/colorAccent"
-        android:typeface="monospace"
+        android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/splash_auth_layout" />

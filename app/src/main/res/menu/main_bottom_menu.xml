@@ -14,16 +14,16 @@
             android:title="@string/bottom_navigation_news"
             app:showAsAction="ifRoom" />
     <item
+            android:id="@+id/bottom_navigation_traces_item"
+            android:enabled="true"
+            android:icon="@drawable/ic_bottom_traces"
+            android:title="@string/bottom_navigation_traces"
+            app:showAsAction="ifRoom" />
+    <item
             android:id="@+id/bottom_navigation_courses_item"
             android:enabled="true"
             android:icon="@drawable/ic_bottom_courses"
             android:title="@string/bottom_navigation_courses"
-            app:showAsAction="ifRoom" />
-    <item
-            android:id="@+id/bottom_navigation_map_item"
-            android:enabled="true"
-            android:icon="@drawable/ic_bottom_map"
-            android:title="@string/bottom_navigation_map"
             app:showAsAction="ifRoom" />
     <item
             android:id="@+id/bottom_navigation_settings_item"

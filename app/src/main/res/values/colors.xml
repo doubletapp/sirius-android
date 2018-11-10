@@ -23,4 +23,6 @@
     <color name="bottom_navigation_tint">#e1e0e0</color>
     <!---->
 
+    <color name="gradient_start_color">#8a6dac</color>
+    <color name="gradient_end_color">#461387</color>
 </resources>

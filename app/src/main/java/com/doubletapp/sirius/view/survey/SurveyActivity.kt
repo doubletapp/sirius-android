@@ -8,9 +8,13 @@ import com.doubletapp.sirius.R
 import com.doubletapp.sirius.base.BaseActivity
 import com.doubletapp.sirius.extensions.showFragment
 import com.doubletapp.sirius.presentation.survey.SurveyViewModel
+import com.doubletapp.sirius.view.SwipeTestLayout
 import com.doubletapp.sirius.view.survey.fragments.*
 import kotlinx.android.synthetic.main.activity_survey.*
 import javax.inject.Inject
+import android.view.View.GONE
+import android.view.View.VISIBLE
+
 
 class SurveyActivity : BaseActivity() {
 
@@ -40,6 +44,9 @@ class SurveyActivity : BaseActivity() {
         fragments.add(SurveySecondFragment())
         fragments.add(SurveyThirdFragment.newInstance(SelectionType.SUBJECT))
         fragments.add(SurveyThirdFragment.newInstance(SelectionType.GOAL))
+        fragments.add(SwipeTestLayout())
+        fragments.add(SurveyEventFragment())
+        fragments.add(AchievementsSurveyFragment())
         setSupportActionBar(surveyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back)
@@ -62,17 +69,22 @@ class SurveyActivity : BaseActivity() {
         super.onResume()
         toggleFragment()
         surveyNext.setOnClickListener {
-            if (fragments[currentFragment].onNextPressed()) {
-                if (fragments.count() > currentFragment) {
-                    currentFragment++
-                    toggleFragment()
-                }
+            showNext()
+        }
+    }
+
+    fun showNext() {
+        if (fragments[currentFragment].onNextPressed()) {
+            if (fragments.count() > currentFragment) {
+                currentFragment++
+                toggleFragment()
             }
         }
     }
 
     private fun changeText() {
         surveyQuestionTitle.text = getString(R.string.survey_question_title, currentFragment + 1)
+        hideBottom(currentFragment == 4)
 
     }
 
@@ -90,6 +102,24 @@ class SurveyActivity : BaseActivity() {
         currentFragment--
         changeText()
         super.onBackPressed()
+    }
+
+    fun hideBottom(isHide: Boolean) {
+        surveyBottomView.visibility = if (isHide) {
+            GONE
+        } else {
+            VISIBLE
+        }
+        surveyNext.visibility = if (isHide) {
+            GONE
+        } else {
+            VISIBLE
+        }
+        surveyEndTest.visibility = if (isHide) {
+            GONE
+        } else {
+            VISIBLE
+        }
     }
 
 }
