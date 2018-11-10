@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
 import android.transition.TransitionManager
+import android.util.Log
 import android.view.View
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.extensions.toast
@@ -31,9 +32,15 @@ class SplashActivity : AppCompatActivity() {
         if (!VKSdk.isLoggedIn()) {
             Handler().postDelayed({ showAuth() }, 1000)
         } else {
-            Handler().postDelayed({ MainActivity.start(this) }, 1000)
+            if (true) {
+                showNextStep()
+            } else {
+                Handler().postDelayed({ MainActivity.start(this) }, 1000)
+            }
         }
-        splash_auth_vk_button.setOnClickListener { VKSdk.login(this, "friends", "offline", "groups") }
+        splash_auth_vk_button.setOnClickListener {
+            Log.d("!!!", VKUtil.getCertificateFingerprint(this, this.packageName)[0])
+            VKSdk.login(this, "friends", "offline", "groups") }
     }
 
     private fun showAuth() {

@@ -7,6 +7,7 @@ import com.doubletapp.sirius.presentation.survey.SurveyViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import javax.inject.Singleton
 
 @Module
 @Suppress("unused")
@@ -22,6 +23,7 @@ abstract class ViewModelModule {
     @ViewModelKey(JustViewModel::class)
     abstract fun bindJustViewModel(justViewModel: JustViewModel): ViewModel
 
+    @Singleton
     @Binds
     @IntoMap
     @ViewModelKey(SurveyViewModel::class)

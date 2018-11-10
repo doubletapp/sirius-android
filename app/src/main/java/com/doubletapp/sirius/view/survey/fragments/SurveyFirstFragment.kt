@@ -1,35 +1,81 @@
 package com.doubletapp.sirius.view.survey.fragments
 
+import android.app.DatePickerDialog
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.base.BaseFragment
 import com.doubletapp.sirius.presentation.survey.SurveyViewModel
-import com.vk.sdk.api.model.VKApiUser
+import com.doubletapp.sirius.view.survey.SurveyActivity
+import com.vk.sdk.api.model.VKApiUserFull
+import kotlinx.android.synthetic.main.fragment_survey_first.*
+import java.util.*
 import javax.inject.Inject
 
-class SurveyFirstFragment() : BaseFragment() {
+class SurveyFirstFragment() : SurveyBaseFragment() {
 
-    var userInfoObserver = Observer<VKApiUser> {
+    private var userInfoObserver = Observer<VKApiUserFull> {
         it?.let { user ->
-            Log.d("!!!", "user $user")
-            //val sdf = SimpleDateFormat("", Locale.getDefault())
-            //surveyFirstDateValue.text = sdf.format(user.fields)
+            surveyFirstDateValue.text = if (model.survey.bdate.isEmpty()) {
+                user.bdate
+            } else {
+                model.survey.bdate
+            }
+            surveyFirstName.setText(if (model.survey.name.isEmpty()) {
+                String.format("%s %s", user.first_name, user.last_name)
+            } else {
+                model.survey.name
+            })
+            surveyFirstTown.setText(if (model.survey.city.isEmpty()) {
+                user.city.title
+            } else {
+                model.survey.city
+            })
+
+            //todo
+            val adapter = ArrayAdapter(context, R.layout.survey_spinner_dropdown_item, mutableListOf("Школьник", "Студент", "Дмитрий"))
+            adapter.setDropDownViewResource(R.layout.survey_spinner_dropdown_item)
+            surveyFirstRole.adapter = adapter
+
+            surveyFirstDateBtn.setOnClickListener({
+                val c = Calendar.getInstance()
+                val year = c.get(Calendar.YEAR)
+                val month = c.get(Calendar.MONTH)
+                val day = c.get(Calendar.DAY_OF_MONTH)
+
+
+                val dpd = DatePickerDialog(activity, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                    // Display Selected date in textbox
+                    surveyFirstDateValue.text = String.format("%d.%d.%d", dayOfMonth, monthOfYear, year)
+                }, year, month, day)
+                dpd.show()
+            })
         }
     }
 
-    @Inject
-    lateinit var model: SurveyViewModel
+    override fun onNextPressed() : Boolean {
+        model.survey.name = surveyFirstName.text.toString()
+        model.survey.bdate = surveyFirstDateValue.text.toString()
+        model.survey.city = surveyFirstTown.text.toString()
+        model.survey.role = surveyFirstRole.selectedItem.toString()
+        return true
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_survey_first, container, false)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        model = (activity as SurveyActivity).model
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

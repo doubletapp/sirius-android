@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/drawable_top_rounded_background">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,12 @@
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/edittext_rounded_stroke_drawable" />
+                android:background="@drawable/edittext_rounded_stroke_drawable"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="14sp"
+                tools:text="Bla bla" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,7 +63,13 @@
                     android:id="@+id/surveyFirstDateValue"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:background="@drawable/edittext_rounded_stroke_drawable" />
+                    android:background="@drawable/edittext_rounded_stroke_drawable"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/text_dark_gray"
+                    android:textSize="14sp"
+                    tools:text="Bla bla" />
 
                 <Button
                     android:id="@+id/surveyFirstDateBtn"
@@ -86,13 +97,17 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/surveyFirstTown"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/edittext_rounded_stroke_drawable"
-                android:spinnerMode="dropdown" />
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:spinnerMode="dropdown"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="14sp" />
         </LinearLayout>
 
 
