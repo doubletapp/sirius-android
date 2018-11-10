@@ -72,4 +72,7 @@
     <string name="ach_title">Наименование</string>
     <string name="ach_result">Результат</string>
     <string name="ach_date">Дата</string>
+    <string name="format_intencity">Предпочтительная интенсивность обучения</string>
+    <string name="format_form">Форма участия</string>
+    <string name="format_cash">Доступные средства на обучение</string>
 </resources>

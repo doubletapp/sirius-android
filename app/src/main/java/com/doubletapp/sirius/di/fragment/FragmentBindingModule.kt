@@ -38,4 +38,7 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindAchievementsFragment(): AchievementsSurveyFragment
+
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindFormatFragment(): SurveyFormatFragment
 }

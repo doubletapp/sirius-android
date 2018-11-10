@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_swipe_test_layout.*
 
 class SwipeTestLayout : SurveyBaseFragment(), CardStackListener {
 
-    var count = 6
+    var count = 5
 
     override fun onNextPressed(): Boolean {
         return true
@@ -48,8 +48,10 @@ class SwipeTestLayout : SurveyBaseFragment(), CardStackListener {
 
     override fun onCardSwiped(direction: Direction?) {
         count--
-        if (count == 0)
+        if (count == 0) {
+            count = 5
             (activity as SurveyActivity).showNext()
+        }
     }
 
     override fun onCardCanceled() {

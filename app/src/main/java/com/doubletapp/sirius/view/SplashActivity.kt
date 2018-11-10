@@ -44,11 +44,8 @@ class SplashActivity : AppCompatActivity() {
         if (!VKSdk.isLoggedIn()) {
             Handler().postDelayed({ showAuth() }, 1000)
         } else {
-            if (true) {
-                showNextStep()
-            } else {
-                Handler().postDelayed({ MainActivity.start(this) }, 1000)
-            }
+            showNextStep()
+
         }
         splash_auth_vk_button.setOnClickListener { VKSdk.login(this, "friends", "offline", "groups") }
     }
@@ -61,7 +58,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun showNextStep() {
-        //todo DIMA!
         if (false) {
             MainActivity.start(this@SplashActivity)
         } else {

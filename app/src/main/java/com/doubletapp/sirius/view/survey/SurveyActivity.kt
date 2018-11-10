@@ -47,6 +47,7 @@ class SurveyActivity : BaseActivity() {
         fragments.add(SwipeTestLayout())
         fragments.add(SurveyEventFragment())
         fragments.add(AchievementsSurveyFragment())
+        fragments.add(SurveyFormatFragment())
         setSupportActionBar(surveyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back)

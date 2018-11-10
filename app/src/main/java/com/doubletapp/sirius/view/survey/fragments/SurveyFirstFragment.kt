@@ -39,7 +39,7 @@ class SurveyFirstFragment() : SurveyBaseFragment() {
             })
 
             //todo
-            val adapter = ArrayAdapter(context, R.layout.survey_spinner_dropdown_item, mutableListOf("Школьник", "Студент", "Дмитрий"))
+            val adapter = ArrayAdapter(context, R.layout.survey_spinner_item, mutableListOf("Школьник", "Студент", "Дмитрий"))
             adapter.setDropDownViewResource(R.layout.survey_spinner_dropdown_item)
             surveyFirstRole.adapter = adapter
 
