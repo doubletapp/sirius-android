@@ -1,5 +1,6 @@
 package com.doubletapp.sirius.view
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,13 +13,24 @@ import com.doubletapp.sirius.extensions.toast
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
 import com.vk.sdk.VKSdk
-import com.vk.sdk.api.VKApi
 import com.vk.sdk.api.VKError
-import com.vk.sdk.util.VKUtil
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity() {
+
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, SplashActivity::class.java)
+            context.startActivity(
+                    intent.setFlags(
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    )
+            )
+        }
+    }
 
     @Inject
     lateinit var splashActivity: SplashActivity
@@ -45,7 +57,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
-                    toast(res.accessToken + res.email)
+                    MainActivity.start(baseContext)
                 }
                 override fun onError(error: VKError) {}
             })

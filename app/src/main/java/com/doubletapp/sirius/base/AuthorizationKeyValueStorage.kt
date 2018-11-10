@@ -1,6 +1,7 @@
 package com.doubletapp.sirius.base
 
 import android.content.SharedPreferences
+import com.vk.sdk.VKSdk
 
 class AuthorizationKeyValueStorage(private val sharedPreferences: SharedPreferences) {
 

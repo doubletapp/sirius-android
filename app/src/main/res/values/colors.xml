@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#FAFAFA</color>
     <color name="colorPrimaryDark">@color/colorPrimary</color>
-    <color name="colorAccent">#84A2E3</color>
+    <color name="colorAccent">#4d008c</color>
 
     <color name="vk_button_background">#8aa2de</color>
     <color name="vk_button_background_pressed">#5974ac</color>
@@ -12,4 +12,6 @@
     <color name="text_light_gray">#a9a9ba</color>
 
     <color name="bottom_navigation_tint">#e1e0e0</color>
+    <color name="gradient_start_color">#8a6dac</color>
+    <color name="gradient_end_color">#461387</color>
 </resources>
