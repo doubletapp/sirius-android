@@ -3,6 +3,7 @@ package com.doubletapp.sirius.di
 import android.arch.lifecycle.ViewModel
 import com.doubletapp.sirius.presentation.JustViewModel
 import com.doubletapp.sirius.presentation.MainViewModel
+import com.doubletapp.sirius.presentation.SettingsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,4 +21,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(JustViewModel::class)
     abstract fun bindJustViewModel(justViewModel: JustViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SettingsViewModel::class)
+    abstract fun bindSettingsViewModel(settingsViewModel: SettingsViewModel): ViewModel
 }

@@ -18,10 +18,21 @@
     <string name="splash_auth_email">E-mail</string>
     <string name="splash_auth_subtitle">или</string>
     <string name="splash_auth_title">Войти через</string>
+    <!--Auth strings-->
+
     <string name="bottom_navigation_profile">Профиль</string>
     <string name="bottom_navigation_news">Новости</string>
     <string name="bottom_navigation_courses">Курсы</string>
     <string name="bottom_navigation_map">Карта</string>
     <string name="bottom_navigation_settings">Настройки</string>
-    <!--Auth strings-->
+
+    <string name="settings_exit">Выйти</string>
+    <string name="profile_friends_title">Друзья из VK</string>
+    <string name="profile_courses_title">Курсы</string>
+    <string name="profile_upcoming_title">Предстоящие</string>
+    <string name="profile_visited_title">Посещенные</string>
+    <string name="bottom_navigation_traces">Траектория</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
