@@ -3,6 +3,7 @@ package com.doubletapp.sirius.view
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import com.doubletapp.sirius.view.trajectories.TrajectoriesFragment
 
 class MainActivityAdapter constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
@@ -14,10 +15,11 @@ class MainActivityAdapter constructor(fm: FragmentManager) : FragmentStatePagerA
     }
 
     override fun getItem(p0: Int): Fragment =
-            when(p0) {
+            when (p0) {
                 POSITION_PROFILE -> ProfileFragment()
                 POSITION_SETTINGS -> SettingsFragment()
                 POSITION_NEWS -> FeedFragment()
+                POSITION_TRACES -> TrajectoriesFragment.newInstance()
                 else -> Fragment()
             }
 

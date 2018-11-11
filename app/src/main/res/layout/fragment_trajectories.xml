@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="18sp"
+        android:textColor="#de151c2a"
+        android:textStyle="bold"
+        android:text="Образовательная траектория"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="14sp"
+        android:textColor="#de151c2a"
+        android:text="Или план действий, который мы подготовили для достижения твоей цели. Дерзай!" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/fragmentTrajectoriesTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal"
+        app:tabMode="fixed"
+        app:tabIndicatorHeight="0dp"
+        app:tabBackground="@drawable/trajectories_tab_background"
+        app:tabTextColor="@android:color/black"
+        app:tabTextAppearance="@style/TrajectoriesTabLayoutTextAppearance"
+        app:tabSelectedTextColor="@android:color/white"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragmentTrajectoriesViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

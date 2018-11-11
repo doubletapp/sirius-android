@@ -36,5 +36,6 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".view.MainActivity" android:theme="@style/MainActivityStyle"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.trajectories.TrajectoriesActivity" />
     </application>
 </manifest>
