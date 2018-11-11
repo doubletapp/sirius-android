@@ -19,6 +19,9 @@ import com.vk.sdk.VKSdk
 import com.vk.sdk.api.VKError
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
+import android.view.WindowManager
+
+
 
 class SplashActivity : BaseActivity() {
 
@@ -40,8 +43,10 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContentView(R.layout.activity_splash)
+        splashViewModel.login.observe(this@SplashActivity, Observer {
+            showNextStep()
+        })
         if (!splashViewModel.isLoggedIn()) {
             Handler().postDelayed({ showAuth() }, 1000)
         } else {
@@ -49,6 +54,10 @@ class SplashActivity : BaseActivity() {
 
         }
         splash_auth_vk_button.setOnClickListener { VKSdk.login(this, "friends", "offline", "groups") }
+        splash_auth_button.setOnClickListener {
+            splashViewModel.login(splash_auth_email.text.toString(),
+                    splash_auth_password.text.toString())
+        }
     }
 
     private fun showAuth() {
@@ -69,9 +78,6 @@ class SplashActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
-                    splashViewModel.login.observe(this@SplashActivity, Observer {
-                        showNextStep()
-                    })
                     splashViewModel.login(res.userId,
                             res.accessToken,
                             "1",

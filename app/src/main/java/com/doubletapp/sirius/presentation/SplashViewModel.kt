@@ -31,6 +31,7 @@ constructor(
                         .subscribe({
                             val array = "${it.vk_id}:${it.auth_token}".toByteArray(StandardCharsets.UTF_8)
                             authorizationKeyValueStorage.login(Base64.getEncoder().encodeToString(array))
+                            authorizationKeyValueStorage.vkEnabled(true)
                             loginData.postValue(true)
                             //MainActivity.start(context)
                         }, {})
@@ -39,4 +40,16 @@ constructor(
 
     fun isLoggedIn(): Boolean = authorizationKeyValueStorage.isLogin()
     fun isShowTest(): Boolean = authorizationKeyValueStorage.isTestPassed()
+    fun login(siriusId: String, siriusPassword: String) {
+        disposables.add(
+                loginInteractor.auth(null, null, siriusId, siriusPassword, null)
+                        .subscribe({
+                            val array = "${it.sirius_id}:${it.auth_token}".toByteArray(StandardCharsets.UTF_8)
+                            authorizationKeyValueStorage.login(Base64.getEncoder().encodeToString(array))
+                            authorizationKeyValueStorage.vkEnabled(false)
+                            loginData.postValue(true)
+                            //MainActivity.start(context)
+                        }, {})
+        )
+    }
 }

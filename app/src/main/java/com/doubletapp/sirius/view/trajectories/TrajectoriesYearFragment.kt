@@ -34,7 +34,7 @@ class TrajectoriesYearFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         fragmentTrajectoriesYear.adapter = adapter
         viewModel.yearTrajectories.observe(this, Observer { list ->
-            list?.let { adapter.updateItems(list) }
+            list?.let { adapter.submitList(list) }
         })
     }
 }

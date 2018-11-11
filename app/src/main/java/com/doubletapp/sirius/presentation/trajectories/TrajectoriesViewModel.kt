@@ -25,7 +25,9 @@ constructor(
     val goalTrajectories: LiveData<List<Trajectory>> = mutableGoalTrajectories
     val yearTrajectories: LiveData<List<Trajectory>> = mutableYearTrajectories
 
-    init { loadTrajectories() }
+    init {
+        loadTrajectories()
+    }
 
     private fun loadTrajectories() {
 
@@ -42,37 +44,41 @@ constructor(
 
     private fun getGoal(): List<Trajectory> {
 
-        return mutableListOf<Trajectory>().apply {
-            add(TrajectoryHeader("6 класс"))
-            add(TrajectoryAchievement(
+        val list = ArrayList<Trajectory>()
+        list.add(Trajectory(title = "6 класс", type = TYPE_HEADER))
+        list.add(Trajectory(
                 title = "Центр Дополнительного Математического образования г. Курган",
-                type = "Кружок",
+                text = "Кружок",
                 audience = "6-11 классы",
-                date = "Ближайшая дата 2-8 декабря 2018"
-            ).apply { enabled = false })
-            add(TrajectoryAchievement(
-                    title = "МОУ СОШ №53",
-                    type = "Маткурсы",
-                    audience = "8-11 классы",
-                    date = "Ближайшая дата 11 января 2019"
-            ).apply { enabled = false })
-            add(TrajectoryEvent("Впереди еще 10 и 11 классы, так что не расслабляйся!"))
-            add(TrajectoryGoal("Поступить в МГУ имени М.В. Ломоносова").apply { visibleLeftBottomDivider = false })
-        }
+                date = "Ближайшая дата 2-8 декабря 2018",
+                type = TYPE_ACHIEVEMENT
+        ).apply { enabled = false })
+        list.add(Trajectory(
+                title = "Центр Дополнительного Математического образования г. Курган",
+                text = "Кружок",
+                audience = "6-11 классы",
+                date = "Ближайшая дата 2-8 декабря 2018",
+                type = TYPE_ACHIEVEMENT
+        ).apply { enabled = false })
+        list.add(Trajectory(text = "Впереди еще 10 и 11 классы, так что не расслабляйся!", type = TYPE_EVENT))
+        list.add(Trajectory(text = "Поступить в МГУ имени М.В. Ломоносова", type = TYPE_GOAL).apply { visibleLeftBottomDivider = false })
+        return list
+
     }
 
     private fun getYear(): List<Trajectory> {
 
         return mutableListOf<Trajectory>().apply {
-            add(TrajectoryHeader("6 класс"))
-            add(TrajectoryAchievement(
+            add(Trajectory(text = "6 класс", type = TYPE_HEADER))
+            add(Trajectory(
                 title = "Центр Дополнительного Математического образования г. Курган",
-                type = "Кружок",
+                text = "Кружок",
                 audience = "6-11 классы",
-                date = "Ближайшая дата 2-8 декабря 2018"
+                date = "Ближайшая дата 2-8 декабря 2018",
+                    type = TYPE_ACHIEVEMENT
                 ).apply { enabled = false })
-            add(TrajectoryEvent("Впереди еще 10 и 11 классы, так что не расслабляйся!"))
-            add(TrajectoryGoal("Поступить в МГУ имени М.В. Ломоносова").apply { visibleLeftBottomDivider = false })
+            add(Trajectory(text = "Впереди еще 10 и 11 классы, так что не расслабляйся!", type = TYPE_EVENT))
+            add(Trajectory(text = "Поступить в МГУ имени М.В. Ломоносова", type = TYPE_GOAL).apply { visibleLeftBottomDivider = false })
         }
     }
 }

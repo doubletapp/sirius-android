@@ -8,11 +8,11 @@ import io.reactivex.Single
 class LoginRemoteRepository(apiErrorHandler: ApiErrorHandler,
                             private val loginRetrofit: LoginRetrofit) : BaseRemoteRepository(apiErrorHandler) {
 
-    fun auth(vkId: String,
-             vkToken: String,
+    fun auth(vkId: String?,
+             vkToken: String?,
              siriusId: String,
              siriusPassword: String,
-             city: String): Single<LoginResponse> =
+             city: String?): Single<LoginResponse> =
             loginRetrofit.auth(vkId, vkToken, siriusId, siriusPassword, city)
                     .compose(apiCompose())
 }

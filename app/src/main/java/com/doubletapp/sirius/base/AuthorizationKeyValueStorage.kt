@@ -50,11 +50,18 @@ class AuthorizationKeyValueStorage(private val sharedPreferences: SharedPreferen
         return getBoolean(TEST_PASSED, false)
     }
 
+    fun vkEnabled(enabled: Boolean) {
+        putBoolean(VK_ENABLED, enabled)
+    }
+
+    fun isVkEnabled(): Boolean = getBoolean(VK_ENABLED, false)
+
     companion object {
 
         const val AUTHORIZATION_DATA = "authorization_data"
         const val VK_TOKEN = "vk_token"
         const val TEST_PASSED = "test_passed"
         const val AUTH_TOKEN = "AUTH_TOKEN"
+        const val VK_ENABLED = "VK_ENABLED"
     }
 }

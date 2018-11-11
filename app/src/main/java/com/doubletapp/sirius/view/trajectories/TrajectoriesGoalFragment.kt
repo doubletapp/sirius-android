@@ -34,7 +34,7 @@ class TrajectoriesGoalFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         fragmentTrajectoriesGoal.adapter = adapter
         viewModel.goalTrajectories.observe(this, Observer { list ->
-            list?.let { adapter.updateItems(list) }
+            list?.let { adapter.submitList(list) }
         })
     }
 }

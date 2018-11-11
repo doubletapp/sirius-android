@@ -10,9 +10,9 @@ import retrofit2.http.POST
 interface LoginRetrofit {
     @POST("auth/")
     @FormUrlEncoded
-    fun auth(@Field("vk_id") vkId: String,
-             @Field("vk_token") vkToken: String,
+    fun auth(@Field("vk_id") vkId: String?,
+             @Field("vk_token") vkToken: String?,
              @Field("sirius_id") siriusId: String,
              @Field("sirius_password") siriusPassword: String,
-             @Field("city") city: String): Single<LoginResponse>
+             @Field("city") city: String?): Single<LoginResponse>
 }
