@@ -47,7 +47,8 @@ class AchievementsSurveyFragment : SurveyBaseFragment() {
         }
 
         //todo
-        val adapter = ArrayAdapter(context, R.layout.survey_spinner_dropdown_item, mutableListOf("Школьник", "Студент", "Дмитрий"))
+        val adapter = ArrayAdapter(context, R.layout.survey_spinner_item, mutableListOf("Победы в конкурсах, соревнованиях",
+                "Грамота лауреата международного конкурса", "Грамота лауреата всероссийского конкурса", "Призовое место", "Грамота"))
         adapter.setDropDownViewResource(R.layout.survey_spinner_dropdown_item)
         achType.adapter = adapter
 

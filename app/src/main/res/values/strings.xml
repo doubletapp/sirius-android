@@ -41,7 +41,7 @@
     <string name="survey_next">Дальше</string>
     <string name="your_name">Ваше имя</string>
     <string name="your_bdate">Дата рождения</string>
-    <string name="your_town">Город</string>
+    <string name="your_town">Город/Область</string>
     <string name="your_role">Статус</string>
     <string name="survey_question_title">Шаг %d</string>
     <string name="learn_place">Где ты учишься?</string>

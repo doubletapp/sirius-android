@@ -59,7 +59,7 @@ class SurveySecondFragment : SurveyBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //todo
-        val mock = mutableListOf("Гимназия 13, СПб", "УрФУ, Екб", "МГУ, Москва")
+        val mock = mutableListOf("", "УрФУ", "МГУ", "СПбГУ", "Санкт-Петербургский Государственный Торгово-экономический Университет")
         val spinnerAdapter = ArrayAdapter(context, R.layout.survey_spinner_dropdown_item, mock)
         spinnerAdapter.setDropDownViewResource(R.layout.survey_spinner_dropdown_item)
         surveySecondEducation.adapter = spinnerAdapter

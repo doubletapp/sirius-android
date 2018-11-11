@@ -49,7 +49,8 @@ class SurveyEventFragment : SurveyBaseFragment() {
         eventCheckerNegative.setOnClickListener({
             eventModel.isSirius = false
         })
-        val regionAdapter = ArrayAdapter<String>(context, R.layout.survey_spinner_dropdown_item, mutableListOf())
+        val regionAdapter = ArrayAdapter<String>(context, R.layout.survey_spinner_dropdown_item, mutableListOf("Всероссийская олимпиада школьников по математике",
+                "Всероссийская олимпиада школьников по физике", "Олимпиада школьников СПбГУ", "Олимпиада им. имени Дж.К. Максвелла"))
         eventName.threshold = 1
         eventName.setAdapter(regionAdapter)
     }

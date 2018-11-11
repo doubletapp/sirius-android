@@ -110,15 +110,15 @@ class SurveyThirdFragment : SurveyBaseFragment() {
                         1 -> {
                             isSecondGoalNeed = true
                             showCreateCategoryDialog(getString(R.string.select_dialog_olymp_title), mutableListOf("Всероссийская олимпиада школьников по математике",
-                                    "Всероссийская олимпиада школьников по физике"))
+                                    "Всероссийская олимпиада школьников по физике", "Олимпиада школьников СПбГУ", "Олимпиада им. имени Дж.К. Максвелла"))
                         }
                         2 -> {
                             isSecondGoalNeed = true
-                            showCreateCategoryDialog(getString(R.string.select_dialog_university_title), mutableListOf("УрФУ", "УрГУ", "МГУ"))
+                            showCreateCategoryDialog(getString(R.string.select_dialog_university_title), mutableListOf("УрФУ", "УрГУ", "МГУ", "СПбГУ"))
                         }
                         3 -> {
                             isSecondGoalNeed = true
-                            showCreateCategoryDialog(getString(R.string.select_dialog_job_title), mutableListOf("Doubletapp", "Doubletapp", "Doubletapp"))
+                            showCreateCategoryDialog(getString(R.string.select_dialog_job_title), mutableListOf("Doubletapp", "Яндекс", "Google", "Apple"))
 
                         }
                     }

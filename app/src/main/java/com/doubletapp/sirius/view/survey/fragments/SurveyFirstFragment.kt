@@ -29,7 +29,7 @@ class SurveyFirstFragment() : SurveyBaseFragment() {
             })
 
             val regionAdapter = ArrayAdapter<String>(context, R.layout.survey_spinner_dropdown_item, mutableListOf("Свердловская область",
-                    "Курганская область", "Ленинградская область"))
+                    "Курганская область", "Ленинградская область", "Московская область"))
             surveyFirstRegion.threshold = 1
             surveyFirstRegion.setAdapter(regionAdapter)
             surveyFirstRegion.setText(if (model.survey.city.isEmpty()) {
@@ -39,7 +39,7 @@ class SurveyFirstFragment() : SurveyBaseFragment() {
             })
 
             //todo
-            val adapter = ArrayAdapter(context, R.layout.survey_spinner_item, mutableListOf("Школьник", "Студент", "Дмитрий"))
+            val adapter = ArrayAdapter(context, R.layout.survey_spinner_item, mutableListOf("Школьник", "Студент"))
             adapter.setDropDownViewResource(R.layout.survey_spinner_dropdown_item)
             surveyFirstRole.adapter = adapter
 
