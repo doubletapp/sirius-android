@@ -138,14 +138,9 @@ constructor(private var fragment: FeedFragment)
 
             Glide.with(itemView)
                     .load(feedItem.image)
-                    .into(feedItemImage)
-            containerView?.feedItemText?.text = feedItem.text
-            feedItemRating.text =  feedItem.rating.toString()
-            feedItemComments.text = feedItem.comments.toString()
-
-            Glide.with(itemView)
-                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
                     .into(feedItemImage2)
+            containerView?.feedItemText?.text = feedItem.text
+
             Glide.with(itemView)
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
                     .into(feedItemFriend1)
