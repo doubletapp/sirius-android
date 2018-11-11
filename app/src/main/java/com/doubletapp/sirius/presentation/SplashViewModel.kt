@@ -1,10 +1,11 @@
 package com.doubletapp.sirius.presentation
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import com.doubletapp.sirius.base.AuthorizationKeyValueStorage
 import com.doubletapp.sirius.base.BaseViewModel
 import com.doubletapp.sirius.domain.login.LoginInteractor
-import com.doubletapp.sirius.view.MainActivity
 import java.nio.charset.StandardCharsets
 import java.util.*
 import javax.inject.Inject
@@ -15,6 +16,10 @@ constructor(
            private val loginInteractor: LoginInteractor,
            private val authorizationKeyValueStorage: AuthorizationKeyValueStorage
 ) : BaseViewModel() {
+
+    private val loginData = MutableLiveData<Boolean>()
+    val login: LiveData<Boolean> get() = loginData
+
     fun login(vkId: String,
               vkToken: String,
               siriusId: String,
@@ -26,10 +31,12 @@ constructor(
                         .subscribe({
                             val array = "${it.vk_id}:${it.auth_token}".toByteArray(StandardCharsets.UTF_8)
                             authorizationKeyValueStorage.login(Base64.getEncoder().encodeToString(array))
-                            MainActivity.start(context)
+                            loginData.postValue(true)
+                            //MainActivity.start(context)
                         }, {})
         )
     }
 
     fun isLoggedIn(): Boolean = authorizationKeyValueStorage.isLogin()
+    fun isShowTest(): Boolean = authorizationKeyValueStorage.isTestPassed()
 }

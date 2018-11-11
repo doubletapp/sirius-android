@@ -12,7 +12,6 @@ import com.doubletapp.sirius.extensions.showFragment
 import com.doubletapp.sirius.model.FeedItem
 import com.doubletapp.sirius.model.FeedItemType
 import com.doubletapp.sirius.util.DecorationUtil
-import kotlinx.android.synthetic.main.feed_stories_layout.*
 import kotlinx.android.synthetic.main.fragment_feed.*
 
 class FeedFragment : Fragment() {
@@ -36,6 +35,12 @@ class FeedFragment : Fragment() {
                 .setSidesOffset(R.dimen.feed_item_sides_offset)
                 .build())
         feedRecycler.adapter = adapter
+        adapter.listener = object : FeedAdapter.OnFilterClickListener {
+            override fun onFilterClick() {
+                (activity as MainActivity).showFragment(android.R.id.content,
+                        FeedFilterFragment(), FeedFilterFragment.TAG, true)
+            }
+        }
         val list = ArrayList<FeedItem>()
         list.add(FeedItem(0, FeedItemType.TYPE_STORIES))
         list.add(FeedItem(1, FeedItemType.TYPE_HEADER))

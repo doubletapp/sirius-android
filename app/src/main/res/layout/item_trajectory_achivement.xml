@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@android:color/white">
+
+    <FrameLayout
+        android:id="@+id/itemLeftDividerContainer"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/itemLeftDividerTop"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="@drawable/trajectories_vertical_line_background"/>
+
+            <View
+                android:id="@+id/itemLeftDividerBottom"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="@drawable/trajectories_vertical_line_background"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:background="@drawable/trajectories_dot_background"/>
+    </FrameLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/itemCardContainer"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="?selectableItemBackground"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toEndOf="@id/itemLeftDividerContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="22dp"
+            android:paddingBottom="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemTrajectoryAchimevemntTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:textSize="16sp"
+                android:textColor="#1f2833"
+                android:textStyle="bold"
+                tools:text="Центр Дополнительного Математического образования г. Курган" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="10sp"
+                    android:text="Тип: "
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/itemTrajectoryAchimevemntType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#4d008c"
+                    tools:text="Кружок" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="10sp"
+                    android:text="Аудитория: "
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/itemTrajectoryAchimevemntAudience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#4d008c"
+                    tools:text="9-11 классы" />
+            </LinearLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:paddingStart="3dp"
+                android:paddingLeft="3dp"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/combined_shape"/>
+
+                <TextView
+                    android:id="@+id/itemTrajectoryAchimevemntDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginStart="35dp"
+                    android:textSize="10sp"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Ближайшая дата 2-8 декабря 2018" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <View
+        android:id="@+id/itemTrajectoryHideView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/trajectories_hide_view_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="5dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/itemCardContainer"
+        app:layout_constraintBottom_toBottomOf="@id/itemCardContainer"
+        app:layout_constraintStart_toStartOf="@id/itemCardContainer"
+        app:layout_constraintEnd_toEndOf="@id/itemCardContainer"
+        tools:visibility="visible" />
+</android.support.constraint.ConstraintLayout>

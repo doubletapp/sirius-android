@@ -18,7 +18,6 @@
     <string name="splash_auth_email">E-mail</string>
     <string name="splash_auth_subtitle">или</string>
     <string name="splash_auth_title">Войти через</string>
-    <!--Auth strings-->
 
     <string name="bottom_navigation_profile">Профиль</string>
     <string name="bottom_navigation_news">Новости</string>
@@ -35,4 +34,45 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Auth strings-->
+
+    <!--survey-->
+    <string name="end_test">Закончить тест</string>
+    <string name="survey_next">Дальше</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="your_bdate">Дата рождения</string>
+    <string name="your_town">Город/Область</string>
+    <string name="your_role">Статус</string>
+    <string name="survey_question_title">Шаг %d</string>
+    <string name="learn_place">Где ты учишься?</string>
+    <string name="subject_title">Выбрано направление \"%s\"</string>
+    <string name="goal_title">Выберите цель</string>
+    <string name="survey_class">В каком классе?</string>
+    <string name="physics">Физика</string>
+    <string name="chemistry">Химия</string>
+    <string name="math">Математика</string>
+    <string name="biology">Биология</string>
+    <string name="space">Космос</string>
+    <string name="survey_area_error">Пожалуйста, выберите область</string>
+    <string name="survey_class_error">Пожалуйста, выберите класс</string>
+    <string name="survey_not_math_error">Раздел в разработке. Пожалуйста, выберите раздел \"Математика\"</string>
+    <string name="survey_selection_error">Раздел в разработке. Пожалуйста, выберите \"Наука\"</string>
+    <string name="goal_one">Прокачаться в науке</string>
+    <string name="goal_mask">Стать Илоном Маском</string>
+    <string name="goal_two">Подготовиться к олимпиаде</string>
+    <string name="goal_three">Поступить в университет</string>
+    <string name="goal_four">Устроиться на работу</string>
+    <string name="select_dialog_university_title">В какой университет?</string>
+    <string name="select_dialog_job_title">В какую компанию?</string>
+    <string name="select_dialog_olymp_title">К какой олимпиаде?</string>
+    <string name="survey_empty_first_goal_error">Пожалуйста, выберите цель</string>
+    <string name="is_this_sirius_event">Это мероприятие проводил \"Сириус\"?</string>
+    <string name="is_wich">Укажите в каких</string>
+    <string name="ach_type">Тип достижения</string>
+    <string name="ach_title">Наименование</string>
+    <string name="ach_result">Результат</string>
+    <string name="ach_date">Дата</string>
+    <string name="format_intencity">Предпочтительная интенсивность обучения</string>
+    <string name="format_form">Форма участия</string>
+    <string name="format_cash">Доступные средства на обучение</string>
 </resources>

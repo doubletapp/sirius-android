@@ -1,5 +1,6 @@
 package com.doubletapp.sirius.view
 
+import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +10,8 @@ import android.transition.TransitionManager
 import android.view.View
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.base.BaseActivity
+import com.doubletapp.sirius.extensions.toast
+import com.doubletapp.sirius.view.survey.SurveyActivity
 import com.doubletapp.sirius.presentation.SplashViewModel
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
@@ -42,7 +45,8 @@ class SplashActivity : BaseActivity() {
         if (!splashViewModel.isLoggedIn()) {
             Handler().postDelayed({ showAuth() }, 1000)
         } else {
-            Handler().postDelayed({ MainActivity.start(this) }, 1000)
+            showNextStep()
+
         }
         splash_auth_vk_button.setOnClickListener { VKSdk.login(this, "friends", "offline", "groups") }
     }
@@ -54,9 +58,20 @@ class SplashActivity : BaseActivity() {
         constraintSet.applyTo(splash_first_layout)
     }
 
+    fun showNextStep() {
+        if (splashViewModel.isShowTest()) {
+            MainActivity.start(this@SplashActivity)
+        } else {
+            SurveyActivity.start(this@SplashActivity)
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
+                    splashViewModel.login.observe(this@SplashActivity, Observer {
+                        showNextStep()
+                    })
                     splashViewModel.login(res.userId,
                             res.accessToken,
                             "1",

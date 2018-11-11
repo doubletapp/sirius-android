@@ -9,10 +9,21 @@
     <color name="vk_button_background_pressed">#5974ac</color>
 
     <color name="white">@android:color/white</color>
+    <color name="white_clear">#00ffffff</color>
+    <color name="white_80">#50ffffff</color>
+
+    <!--text colors-->
     <color name="text_dark_gray">#4a4a4a</color>
     <color name="text_light_gray">#a9a9ba</color>
+    <!---->
 
+    <!-- custom views and drawables colors -->
+    <color name="btnRoundedBackgroundColor">@color/colorAccent</color>
+    <color name="survey_calendar_border_color">#e9eff4</color>
+    <color name="survey_calendar_background_color">#66f4f7f9</color>
     <color name="bottom_navigation_tint">#e1e0e0</color>
+    <!---->
+
     <color name="gradient_start_color">#8a6dac</color>
     <color name="gradient_end_color">#461387</color>
     <color name="separator">#DCDCDC</color>
