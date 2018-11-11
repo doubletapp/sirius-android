@@ -21,5 +21,10 @@ class CourseDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         courseToolbar.setNavigationOnClickListener { activity?.onBackPressed() }
+        courseDetailRegister.setOnClickListener {
+            InformationalDialog.newInstance()
+                    .setOKListener { activity?.onBackPressed() }
+                    .show(childFragmentManager, InformationalDialog.TAG)
+        }
     }
 }

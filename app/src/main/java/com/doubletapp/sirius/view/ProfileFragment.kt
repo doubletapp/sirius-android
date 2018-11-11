@@ -30,19 +30,6 @@ class ProfileFragment : BaseFragment() {
         Glide.with(this)
                 .load("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/36/3629ccc4e536041be8b7503d0e22d685c1d97def_full.jpg")
                 .into(profileAvatar)
-        profileChangeTest.setOnClickListener {
-            showFragment(android.R.id.content,
-                    TestChangeFragment(),
-                    TestChangeFragment.TAG,
-                    true)
-        }
-        profileRepeatTest.setOnClickListener {
-            val fragment = FeedFragment()
-            showFragment(android.R.id.content,
-                fragment,
-                fragment.javaClass.simpleName,
-                true)
-        }
         (activity as MainActivity).mainViewModel.userInfo.observe(this, profileObserver)
         (activity as MainActivity).mainViewModel.getUser()
     }
