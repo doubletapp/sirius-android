@@ -10,14 +10,16 @@ import com.bumptech.glide.Glide
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.extensions.showFragment
 import com.doubletapp.sirius.model.FeedItem
+import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_FEED_CARD
 import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_HEADER
 import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_STORIES
 import com.doubletapp.sirius.util.DecorationUtil
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.feed_header_layout.view.*
 import kotlinx.android.synthetic.main.feed_item_layout.*
+import kotlinx.android.synthetic.main.feed_item_layout2.*
+import kotlinx.android.synthetic.main.feed_item_layout2.view.*
 import kotlinx.android.synthetic.main.feed_stories_layout.*
-import kotlinx.android.synthetic.main.feed_stories_layout.view.*
 
 class FeedAdapter
 constructor(private var fragment: FeedFragment)
@@ -56,8 +58,11 @@ constructor(private var fragment: FeedFragment)
                 TYPE_HEADER -> FeedHeaderViewHolder(
                         LayoutInflater.from(p0.context).inflate(R.layout.feed_header_layout, p0, false)
                 )
-                else -> FeedViewHolder(
+                TYPE_FEED_CARD -> FeedViewHolder(
                         LayoutInflater.from(p0.context).inflate(R.layout.feed_item_layout, p0, false)
+                )
+                else -> FeedViewHolder2(
+                        LayoutInflater.from(p0.context).inflate(R.layout.feed_item_layout2, p0, false)
                 )
             }
 
@@ -67,7 +72,8 @@ constructor(private var fragment: FeedFragment)
             when (p0) {
                 is FeedStoriesViewHolder -> p0.bind(getItem(p1))
                 is FeedHeaderViewHolder -> p0.bind(getItem(p1))
-                else -> (p0 as FeedViewHolder).bind(getItem(p1))
+                is FeedViewHolder -> p0.bind(getItem(p1))
+                else -> (p0 as FeedViewHolder2).bind(getItem(p1))
             }
 
     class FeedItemDiffCallback : DiffUtil.ItemCallback<FeedItem>() {
@@ -111,4 +117,30 @@ constructor(private var fragment: FeedFragment)
             }
         }
     }
+
+    inner class FeedViewHolder2(override val containerView: View?) : ViewHolder(containerView!!),
+            LayoutContainer {
+        fun bind(feedItem: FeedItem) {
+            Glide.with(itemView)
+                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
+                    .into(feedItemImage2)
+            Glide.with(itemView)
+                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
+                    .into(feedItemFriend1)
+            Glide.with(itemView)
+                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
+                    .into(feedItemFriend2)
+            Glide.with(itemView)
+                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
+                    .into(feedItemFriend3)
+            feedItemLayout2.setOnClickListener {
+                val fragment2 = CourseDetailFragment()
+                fragment.showFragment(android.R.id.content,
+                        fragment2,
+                        fragment2.javaClass.simpleName,
+                        true)
+            }
+        }
+    }
+
 }
