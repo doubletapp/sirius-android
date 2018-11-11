@@ -58,6 +58,7 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/feedItemRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -79,6 +80,7 @@
                 app:layout_constraintTop_toTopOf="@id/feedItemStar" />
 
             <TextView
+                android:id="@+id/feedItemComments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"

@@ -112,8 +112,12 @@ constructor(private var fragment: FeedFragment)
             LayoutContainer {
         fun bind(feedItem: FeedItem) {
             Glide.with(itemView)
-                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
+                    .load(feedItem.image)
                     .into(feedItemImage)
+            containerView?.feedItemText?.text = feedItem.text
+            feedItemRating.text =  feedItem.rating.toString()
+            feedItemComments.text = feedItem.comments.toString()
+
             feedItemLayout.setOnClickListener {
                 val fragment2 = CourseDetailFragment()
                 fragment.showFragment(android.R.id.content,
@@ -131,6 +135,14 @@ constructor(private var fragment: FeedFragment)
     inner class FeedViewHolder2(override val containerView: View?) : ViewHolder(containerView!!),
             LayoutContainer {
         fun bind(feedItem: FeedItem) {
+
+            Glide.with(itemView)
+                    .load(feedItem.image)
+                    .into(feedItemImage)
+            containerView?.feedItemText?.text = feedItem.text
+            feedItemRating.text =  feedItem.rating.toString()
+            feedItemComments.text = feedItem.comments.toString()
+
             Glide.with(itemView)
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
                     .into(feedItemImage2)
