@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.doubletapp.sirius.R
+import com.doubletapp.sirius.extensions.showFragment
 import com.doubletapp.sirius.model.FeedItem
 import com.doubletapp.sirius.model.FeedItemType
 import com.doubletapp.sirius.util.DecorationUtil
+import kotlinx.android.synthetic.main.feed_stories_layout.*
 import kotlinx.android.synthetic.main.fragment_feed.*
 
 class FeedFragment : Fragment() {
@@ -25,7 +27,7 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = FeedAdapter()
+        val adapter = FeedAdapter(this)
         feedRecycler.addItemDecoration(DecorationUtil.SiriusItemDecoration.builder
                 .setColor(android.R.color.transparent)
                 .setContext(view.context)
