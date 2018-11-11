@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.doubletapp.sirius.R
+import com.doubletapp.sirius.extensions.showFragment
 import com.doubletapp.sirius.model.FeedItem
 import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_HEADER
 import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_STORIES
@@ -15,8 +16,13 @@ import com.doubletapp.sirius.util.DecorationUtil
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.feed_header_layout.view.*
 import kotlinx.android.synthetic.main.feed_item_layout.*
+import kotlinx.android.synthetic.main.feed_stories_layout.*
+import kotlinx.android.synthetic.main.feed_stories_layout.view.*
 
-class FeedAdapter : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()), DecorationUtil.StickyHeaderInterface {
+class FeedAdapter
+constructor(private var fragment: FeedFragment)
+    : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()),
+        DecorationUtil.StickyHeaderInterface {
 
     override fun getHeaderPositionForItem(itemPosition: Int): Int {
         var headerPosition = -1
@@ -39,30 +45,30 @@ class FeedAdapter : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()), D
     override fun isHeader(itemPosition: Int): Boolean = getItem(itemPosition).type == TYPE_HEADER
 
     override fun bindHeaderData(header: View, headerPosition: Int) {
-        header.feedFilter.setOnClickListener {  }
+        header.feedFilter.setOnClickListener { }
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder =
-        when (p1) {
-            TYPE_STORIES -> FeedStoriesViewHolder(
-                LayoutInflater.from(p0.context).inflate(R.layout.feed_stories_layout, p0, false)
-            )
-            TYPE_HEADER -> FeedHeaderViewHolder(
-                LayoutInflater.from(p0.context).inflate(R.layout.feed_header_layout, p0, false)
-            )
-            else -> FeedViewHolder(
-                LayoutInflater.from(p0.context).inflate(R.layout.feed_item_layout, p0, false)
-            )
-        }
+            when (p1) {
+                TYPE_STORIES -> FeedStoriesViewHolder(
+                        LayoutInflater.from(p0.context).inflate(R.layout.feed_stories_layout, p0, false)
+                )
+                TYPE_HEADER -> FeedHeaderViewHolder(
+                        LayoutInflater.from(p0.context).inflate(R.layout.feed_header_layout, p0, false)
+                )
+                else -> FeedViewHolder(
+                        LayoutInflater.from(p0.context).inflate(R.layout.feed_item_layout, p0, false)
+                )
+            }
 
     override fun getItemViewType(position: Int): Int = getItem(position).type
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) =
-        when (p0) {
-            is FeedStoriesViewHolder -> p0.bind(getItem(p1))
-            is FeedHeaderViewHolder -> p0.bind(getItem(p1))
-            else -> (p0 as FeedViewHolder).bind(getItem(p1))
-        }
+            when (p0) {
+                is FeedStoriesViewHolder -> p0.bind(getItem(p1))
+                is FeedHeaderViewHolder -> p0.bind(getItem(p1))
+                else -> (p0 as FeedViewHolder).bind(getItem(p1))
+            }
 
     class FeedItemDiffCallback : DiffUtil.ItemCallback<FeedItem>() {
         override fun areItemsTheSame(p0: FeedItem, p1: FeedItem): Boolean = p0.id == p1.id
@@ -71,21 +77,27 @@ class FeedAdapter : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()), D
     }
 
     inner class FeedStoriesViewHolder(override val containerView: View?) : ViewHolder(containerView!!),
-        LayoutContainer {
+            LayoutContainer {
         fun bind(feedItem: FeedItem) {
-
+            storyToOpen.setOnClickListener {
+                val fragment2 = StoriesFragment()
+                fragment.showFragment(android.R.id.content,
+                        fragment2,
+                        fragment2.javaClass.simpleName,
+                        true)
+            }
         }
     }
 
     inner class FeedHeaderViewHolder(override val containerView: View?) : ViewHolder(containerView!!),
-        LayoutContainer {
+            LayoutContainer {
         fun bind(feedItem: FeedItem) {
 
         }
     }
 
     inner class FeedViewHolder(override val containerView: View?) : ViewHolder(containerView!!),
-        LayoutContainer {
+            LayoutContainer {
         fun bind(feedItem: FeedItem) {
             Glide.with(itemView)
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")

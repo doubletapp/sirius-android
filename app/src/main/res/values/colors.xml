@@ -16,4 +16,6 @@
     <color name="gradient_start_color">#8a6dac</color>
     <color name="gradient_end_color">#461387</color>
     <color name="separator">#DCDCDC</color>
+
+    <color name="stories_stroke">#92d048</color>
 </resources>
