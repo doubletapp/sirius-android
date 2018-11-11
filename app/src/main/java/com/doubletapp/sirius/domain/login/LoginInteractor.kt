@@ -18,10 +18,10 @@ constructor(private val context: Context,
         SplashActivity.start(context)
     }
 
-    fun auth(vkId: String,
-             vkToken: String,
+    fun auth(vkId: String?,
+             vkToken: String?,
              siriusId: String,
              siriusPassword: String,
-             city: String): Single<LoginResponse> =
+             city: String?): Single<LoginResponse> =
             loginRemoteRepository.auth(vkId, vkToken, siriusId, siriusPassword, city)
 }

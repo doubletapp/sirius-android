@@ -2,7 +2,7 @@ package com.doubletapp.sirius.view.trajectories
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.doubletapp.sirius.data.trajectories.TrajectoryEvent
+import com.doubletapp.sirius.data.trajectories.Trajectory
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_trajectory_event.*
 
@@ -12,7 +12,7 @@ class TrajectoryEventViewHolder(
 
 ) : RecyclerView.ViewHolder(containerView!!), LayoutContainer {
 
-    fun bind(trajectoryEvent: TrajectoryEvent) {
+    fun bind(trajectoryEvent: Trajectory) {
 
         itemTrajectoryHideView.visibility = when (trajectoryEvent.enabled) {
             true -> View.GONE

@@ -7,7 +7,7 @@
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowBackground">@drawable/blue_window_background</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowSoftInputMode">adjustResize|stateHidden</item>
+        <item name="android:windowSoftInputMode">adjustPan|stateHidden</item>
     </style>
 
     <style name="MainActivityStyle" parent="AppTheme">
