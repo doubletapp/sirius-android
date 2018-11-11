@@ -26,10 +26,10 @@ class TrajectoriesAdapter : ListAdapter<Trajectory, RecyclerView.ViewHolder>(Tra
         else -> throw IllegalArgumentException("Unknown viewType")
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 
-        return when (getItemViewType(position)) {
+        return when (type) {
             Type.HEADER.ordinal -> TrajectoryHeaderViewHolder(layoutInflater.inflate(R.layout.item_trajectory_header, parent, false))
             Type.ACHIVEMENT.ordinal -> TrajectoryAchvementViewHolder(layoutInflater.inflate(R.layout.item_trajectory_achivement, parent, false))
             Type.EVENT.ordinal -> TrajectoryEventViewHolder(layoutInflater.inflate(R.layout.item_trajectory_event, parent, false))
