@@ -4,6 +4,7 @@ import android.view.View
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView.ViewHolder
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
@@ -13,10 +14,13 @@ import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_HEADER
 import com.doubletapp.sirius.model.FeedItemType.Companion.TYPE_STORIES
 import com.doubletapp.sirius.util.DecorationUtil
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.feed_header_layout.*
 import kotlinx.android.synthetic.main.feed_header_layout.view.*
 import kotlinx.android.synthetic.main.feed_item_layout.*
 
 class FeedAdapter : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()), DecorationUtil.StickyHeaderInterface {
+
+    var listener: OnFilterClickListener? = null
 
     override fun getHeaderPositionForItem(itemPosition: Int): Int {
         var headerPosition = -1
@@ -80,7 +84,9 @@ class FeedAdapter : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()), D
     inner class FeedHeaderViewHolder(override val containerView: View?) : ViewHolder(containerView!!),
         LayoutContainer {
         fun bind(feedItem: FeedItem) {
-
+            feedFilter.setOnClickListener {
+                listener?.onFilterClick()
+            }
         }
     }
 
@@ -91,5 +97,9 @@ class FeedAdapter : ListAdapter<FeedItem, ViewHolder>(FeedItemDiffCallback()), D
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
                     .into(feedItemImage)
         }
+    }
+
+    interface OnFilterClickListener {
+        fun onFilterClick()
     }
 }

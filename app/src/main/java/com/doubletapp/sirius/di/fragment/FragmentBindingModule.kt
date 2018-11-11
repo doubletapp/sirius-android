@@ -1,5 +1,6 @@
 package com.doubletapp.sirius.di.fragment
 
+import com.doubletapp.sirius.view.FeedFilterFragment
 import com.doubletapp.sirius.view.ProfileFragment
 import com.doubletapp.sirius.view.SettingsFragment
 import com.doubletapp.sirius.view.SwipeTestLayout
@@ -49,5 +50,8 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindTrajectoriesYearFragment(): TrajectoriesYearFragment
+
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindFeedFilterFragment(): FeedFilterFragment
 
 }
