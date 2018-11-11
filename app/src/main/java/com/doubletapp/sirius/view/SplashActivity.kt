@@ -3,7 +3,6 @@ package com.doubletapp.sirius.view
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
@@ -73,7 +72,12 @@ class SplashActivity : BaseActivity() {
                     splashViewModel.login.observe(this@SplashActivity, Observer {
                         showNextStep()
                     })
-                    splashViewModel.login(res.userId, res.accessToken, "1", "1", "", this@SplashActivity)
+                    splashViewModel.login(res.userId,
+                            res.accessToken,
+                            "1",
+                            "1",
+                            "",
+                            this@SplashActivity)
                 }
                 override fun onError(error: VKError) {}
             })

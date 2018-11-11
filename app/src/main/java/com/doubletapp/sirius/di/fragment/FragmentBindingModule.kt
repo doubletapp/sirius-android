@@ -8,6 +8,7 @@ import com.doubletapp.sirius.view.survey.fragments.*
 import com.doubletapp.sirius.view.trajectories.TrajectoriesFragment
 import com.doubletapp.sirius.view.trajectories.TrajectoriesGoalFragment
 import com.doubletapp.sirius.view.trajectories.TrajectoriesYearFragment
+import com.doubletapp.sirius.view.StoriesFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -54,4 +55,6 @@ abstract class FragmentBindingModule {
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindFeedFilterFragment(): FeedFilterFragment
 
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindStoriesFragment(): StoriesFragment
 }

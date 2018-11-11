@@ -1,168 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ilon_big" />
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:src="@drawable/ilon_big"
+               android:scaleType="centerCrop"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:weightSum="3"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout android:layout_width="match_parent"
+                  android:paddingLeft="16dp"
+                  android:paddingRight="16dp"
+                  android:layout_height="5dp"
+                  android:layout_marginTop="36dp"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:orientation="horizontal"
+                  android:weightSum="3">
 
-        <View
-            android:id="@+id/story_top_1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/story_top_lines" />
+        <View android:layout_width="0dp" android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:id="@+id/story_top_1"
+              android:layout_marginRight="8dp"
+              android:background="@drawable/story_top_lines"
+        />
 
-        <View
-            android:id="@+id/story_top_2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/story_top_lines" />
+        <View android:layout_width="0dp" android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:id="@+id/story_top_2"
+              android:background="@drawable/story_top_lines"
+        />
 
-        <View
-            android:id="@+id/story_top_3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/story_top_lines" />
+        <View android:layout_width="0dp" android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:id="@+id/story_top_3"
+              android:layout_marginLeft="8dp"
+              android:background="@drawable/story_top_lines"
+        />
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/story_close_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="38dp"
-        android:background="?attr/selectableItemBackground"
-        android:src="@drawable/ic_close_white_24dp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton android:layout_width="48dp" android:layout_height="48dp"
+                 android:id="@+id/story_close_button"
+                 android:layout_marginTop="38dp"
+                 android:textColor="@color/colorAccent"
+                 android:background="?attr/selectableItemBackground"
+                 android:src="@drawable/ic_close_white_24dp"
+                 app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+                 app:layout_constraintEnd_toEndOf="parent"/>
 
     <android.support.constraint.Guideline
-        android:id="@+id/guidelineCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+            android:id="@+id/guidelineCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/story_gradient"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineCenter" />
+    <View android:layout_width="match_parent" android:layout_height="0dp"
+          android:background="@drawable/story_gradient"
+          app:layout_constraintTop_toTopOf="@id/guidelineCenter"
+          app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
-        android:id="@+id/story_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:paddingEnd="22dp"
-        android:paddingStart="22dp"
-        android:text="Илон Маск уволен по требованию SEC."
-        android:textColor="#ffffff"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
+            android:id="@+id/story_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:text="Илон Маск уволен по требованию SEC."
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.555"/>
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily=""
-        android:paddingEnd="22dp"
-        android:paddingStart="22dp"
-        android:text="Tesla оштрафована на 20 миллионов долларов"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/story_title" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toBottomOf="@id/story_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily=""
+            android:text="Tesla оштрафована на 20 миллионов долларов"
+            android:id="@+id/textView3"/>
 
-    <Button
-        android:id="@+id/story_read_button"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button"
-        android:paddingLeft="65dp"
-        android:paddingRight="65dp"
-        android:text="Читать"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <Button android:layout_width="wrap_content" android:layout_height="42dp"
+            android:id="@+id/story_read_button"
+            android:text="Читать"
+            android:paddingLeft="65dp"
+            android:paddingRight="65dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/rounded_button" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"/>
 
-    <ImageButton
-        android:id="@+id/story_bookmark_button"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        android:src="@drawable/ic_bookmark_purple_24dp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story_read_button" />
+    <ImageButton android:layout_width="42dp" android:layout_height="42dp"
+                 android:id="@+id/story_bookmark_button"
+                 android:paddingLeft="60dp"
+                 android:paddingRight="60dp"
+                 android:layout_marginTop="24dp"
+                 android:textColor="@color/colorAccent"
+                 android:background="@drawable/rounded_button" app:layout_constraintStart_toStartOf="parent"
+                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                 android:layout_marginEnd="8dp"
+                 android:src="@drawable/ic_bookmark_purple_24dp"
+                 app:layout_constraintTop_toBottomOf="@+id/story_read_button"/>
 
-    <ImageButton
-        android:id="@+id/story_like_button"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        android:src="@drawable/ic_thumb_up_purple_24dp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@id/story_bookmark_button"
-        app:layout_constraintTop_toBottomOf="@+id/story_read_button" />
+    <ImageButton android:layout_width="42dp" android:layout_height="42dp"
+                 android:id="@+id/story_like_button"
+                 android:paddingLeft="60dp"
+                 android:paddingRight="60dp"
+                 android:layout_marginTop="24dp"
+                 android:textColor="@color/colorAccent"
+                 android:background="@drawable/rounded_button"
+                 android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@id/story_bookmark_button"
+                 android:layout_marginEnd="40dp"
+                 android:src="@drawable/ic_thumb_up_purple_24dp"
+                 app:layout_constraintTop_toBottomOf="@+id/story_read_button"/>
 
-    <ImageButton
-        android:id="@+id/story_dislike_button"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        android:src="@drawable/ic_thumb_down_purple_24dp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintStart_toEndOf="@id/story_bookmark_button"
-        app:layout_constraintTop_toBottomOf="@+id/story_read_button" />
+    <ImageButton android:layout_width="42dp" android:layout_height="42dp"
+                 android:id="@+id/story_dislike_button"
+                 android:paddingLeft="60dp"
+                 android:paddingRight="60dp"
+                 android:layout_marginTop="24dp"
+                 android:textColor="@color/colorAccent"
+                 android:background="@drawable/rounded_button"
+                 app:layout_constraintStart_toEndOf="@id/story_bookmark_button"
+                 android:layout_marginStart="40dp"
+                 android:src="@drawable/ic_thumb_down_purple_24dp"
+                 app:layout_constraintTop_toBottomOf="@+id/story_read_button"/>
 
 </android.support.constraint.ConstraintLayout>
