@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.CourseDetailFragment"
+    android:background="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/courseToolbar"
+        android:paddingTop="26dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:title="Курс"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:navigationIcon="?attr/homeAsUpIndicator"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/courseToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/courseDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textSize="20sp"
+                android:textColor="@color/text_dark_gray"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/courseToolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="20dp"
+                android:text="Январская образовательная программа по математике и информатике" />
+
+            <ImageView
+                android:id="@+id/courseCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_course_calendar"
+                app:layout_constraintTop_toBottomOf="@id/courseDescription"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.01.19 - 25.02.19"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                app:layout_constraintTop_toTopOf="@id/courseCalendar"
+                app:layout_constraintStart_toEndOf="@id/courseCalendar" />
+
+            <ImageView
+                android:id="@+id/courseGroupIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/ic_course_peoples"
+                app:layout_constraintTop_toTopOf="@id/courseCalendar"
+                app:layout_constraintStart_toStartOf="@id/courseCalendar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Группа 100 человек"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                app:layout_constraintTop_toTopOf="@id/courseGroupIcon"
+                app:layout_constraintStart_toEndOf="@id/courseGroupIcon" />
+
+            <ImageView
+                android:id="@+id/fragmentCourseDetailsRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_course_stars"
+                app:layout_constraintTop_toBottomOf="@id/courseGroupIcon"
+                app:layout_constraintStart_toStartOf="@id/courseGroupIcon" />
+
+            <Button
+                android:id="@+id/courseDetailRegister"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="Принять участие"
+                android:background="@drawable/violet_button_round_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="27dp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/fragmentCourseDetailsRating"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/courseShare" />
+
+            <Button
+                android:id="@+id/courseShare"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/white_button_round_share_background"
+                app:layout_constraintStart_toEndOf="@id/courseDetailRegister"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/courseDetailRegister" />
+
+            <TextView
+                android:id="@+id/courseParticipants"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:textSize="16sp"
+                android:layout_marginTop="25dp"
+                android:drawableEnd="@drawable/ic_chevron_right_black"
+                android:paddingEnd="13dp"
+                android:textColor="@color/text_dark_gray"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="Участники и порядок отбора"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/courseDetailRegister" />
+
+            <View
+                android:id="@+id/courseSeparator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/separator"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@id/courseParticipants"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/courseDescriptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/courseSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="О программе" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Образовательная программа включает в себя два направления: «Математика» и «Информатика». Математические курсы познакомят школьников с классическими результатами в различных областях математики, недавними достижениями и интересными открытыми задачами. На направлении «Информатика»  будут читаться как технологические курсы с большим количеством практики, так и математические основы программирования.
+
+Преимущества программы:
+
+* Участники получат уникальную возможность пообщаться с активными математиками Санкт-Петербургского Государственного Университета и разработчиками компаний JetBrains и Яндекс.
+* Участники смогут погрузиться в мир научных исследований в различных областях математики и computer science."
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/courseDescriptionTitle" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

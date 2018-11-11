@@ -102,6 +102,13 @@ constructor(private var fragment: FeedFragment)
             Glide.with(itemView)
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujyiyG_Ux0QW7RYhbFvM-3bojbUdkcqRCjuKrbiLWrfG2BKjVGw")
                     .into(feedItemImage)
+            feedItemLayout.setOnClickListener {
+                val fragment2 = CourseDetailFragment()
+                fragment.showFragment(android.R.id.content,
+                        fragment2,
+                        fragment2.javaClass.simpleName,
+                        true)
+            }
         }
     }
 }
