@@ -1,6 +1,7 @@
 package com.doubletapp.sirius.view.trajectories
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.doubletapp.sirius.R
@@ -34,7 +35,7 @@ class TrajectoriesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+        Log.d("!!!", "item ${getItemViewType(position)}")
         when (getItemViewType(position)) {
             Type.HEADER.ordinal -> (holder as TrajectoryHeaderViewHolder).bind(items[position] as TrajectoryHeader)
             Type.ACHIVEMENT.ordinal -> (holder as TrajectoryAchvementViewHolder).bind(items[position] as TrajectoryAchievement)

@@ -50,6 +50,12 @@ constructor(
                 audience = "6-11 классы",
                 date = "Ближайшая дата 2-8 декабря 2018"
             ).apply { enabled = false })
+            add(TrajectoryAchievement(
+                    title = "МОУ СОШ №53",
+                    type = "Маткурсы",
+                    audience = "8-11 классы",
+                    date = "Ближайшая дата 11 января 2019"
+            ).apply { enabled = false })
             add(TrajectoryEvent("Впереди еще 10 и 11 классы, так что не расслабляйся!"))
             add(TrajectoryGoal("Поступить в МГУ имени М.В. Ломоносова").apply { visibleLeftBottomDivider = false })
         }
