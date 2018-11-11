@@ -95,11 +95,11 @@ class SurveyThirdFragment : SurveyBaseFragment() {
                     Pair(getString(R.string.biology), R.drawable.ic_biology_selector),
                     Pair(getString(R.string.space), R.drawable.ic_space_selector))
         } else {
-            adapter.items = mutableListOf(Pair(getString(R.string.goal_one), R.drawable.ic_physic),
-                    Pair(getString(R.string.goal_two), R.drawable.ic_physic),
-                    Pair(getString(R.string.goal_three), R.drawable.ic_physic),
-                    Pair(getString(R.string.goal_four), R.drawable.ic_physic),
-                    Pair(getString(R.string.goal_mask), R.drawable.ic_space))
+            adapter.items = mutableListOf(Pair(getString(R.string.goal_one), R.drawable.ic_muscles_selector),
+                    Pair(getString(R.string.goal_two), R.drawable.ic_trophy_selector),
+                    Pair(getString(R.string.goal_three), R.drawable.ic_scholarship_selector),
+                    Pair(getString(R.string.goal_four), R.drawable.ic_briefcase_selector),
+                    Pair(getString(R.string.goal_mask), R.drawable.ic_startup_selector))
             adapter.listener = object : AreasAdapter.OnSelectionListener {
                 override fun itemSelected(position: Int) {
                     goal = Pair(adapter.items[position].first, "")
