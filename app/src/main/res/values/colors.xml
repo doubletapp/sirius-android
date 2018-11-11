@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FAFAFA</color>
     <color name="colorPrimaryDark">@color/colorPrimary</color>
     <color name="colorAccent">#4d008c</color>
+    <color name="colorAccentDark">#17005d</color>
 
     <color name="vk_button_background">#8aa2de</color>
     <color name="vk_button_background_pressed">#5974ac</color>
@@ -25,4 +26,5 @@
 
     <color name="gradient_start_color">#8a6dac</color>
     <color name="gradient_end_color">#461387</color>
+    <color name="separator">#DCDCDC</color>
 </resources>

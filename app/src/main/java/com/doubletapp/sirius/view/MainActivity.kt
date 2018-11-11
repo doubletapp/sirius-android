@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.design.bottomnavigation.LabelVisibilityMode
 import android.support.design.widget.BottomNavigationView
 import android.view.MenuItem
+import android.view.View
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.base.BaseActivity
 import com.doubletapp.sirius.extensions.showFragment
@@ -35,16 +36,12 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         setContentView(R.layout.activity_main)
-        showFragment(
-            android.R.id.content,
-            JustFragment.newInstance(),
-            JustFragment.TAG,
-            false
-        )
         mainBottomNavigation.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
         mainBottomNavigation.setOnNavigationItemSelectedListener(this)
         mainViewPager.adapter = mainActivityAdapter
+        mainViewModel.getCourses()
     }
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean =
@@ -57,16 +54,12 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                     mainViewPager.currentItem = 1
                     true
                 }
-                R.id.bottom_navigation_courses_item -> {
-                    mainViewPager.currentItem = 3
-                    true
-                }
                 R.id.bottom_navigation_traces_item -> {
                     mainViewPager.currentItem = 2
                     true
                 }
                 R.id.bottom_navigation_settings_item -> {
-                    mainViewPager.currentItem = 4
+                    mainViewPager.currentItem = 3
                     true
                 }
                 else -> false

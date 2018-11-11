@@ -7,7 +7,6 @@ import com.doubletapp.sirius.base.BaseViewModel
 import com.doubletapp.sirius.models.SurveyModel
 import com.vk.sdk.VKSdk
 import com.vk.sdk.api.*
-import com.vk.sdk.api.model.VKApiUser
 import com.vk.sdk.api.model.VKApiUserFull
 import com.vk.sdk.api.model.VKList
 import javax.inject.Inject
@@ -36,5 +35,9 @@ constructor(private val authorizationKeyValueStorage: AuthorizationKeyValueStora
                 }
             })
         }
+    }
+
+    fun testPassed() {
+        authorizationKeyValueStorage.setTestPassed()
     }
 }

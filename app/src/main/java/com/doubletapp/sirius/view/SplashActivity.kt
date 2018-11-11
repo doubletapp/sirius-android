@@ -1,5 +1,6 @@
 package com.doubletapp.sirius.view
 
+import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -7,11 +8,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
 import android.transition.TransitionManager
-import android.util.Log
 import android.view.View
 import com.doubletapp.sirius.R
+import com.doubletapp.sirius.base.BaseActivity
 import com.doubletapp.sirius.extensions.toast
 import com.doubletapp.sirius.view.survey.SurveyActivity
+import com.doubletapp.sirius.presentation.SplashViewModel
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
 import com.vk.sdk.VKSdk
@@ -19,7 +21,7 @@ import com.vk.sdk.api.VKError
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     companion object {
         fun start(context: Context) {
@@ -35,13 +37,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var splashActivity: SplashActivity
+    lateinit var splashViewModel: SplashViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContentView(R.layout.activity_splash)
-        if (!VKSdk.isLoggedIn()) {
+        if (!splashViewModel.isLoggedIn()) {
             Handler().postDelayed({ showAuth() }, 1000)
         } else {
             showNextStep()
@@ -58,7 +60,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun showNextStep() {
-        if (false) {
+        if (splashViewModel.isShowTest()) {
             MainActivity.start(this@SplashActivity)
         } else {
             SurveyActivity.start(this@SplashActivity)
@@ -68,7 +70,10 @@ class SplashActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
-                    showNextStep()
+                    splashViewModel.login.observe(this@SplashActivity, Observer {
+                        showNextStep()
+                    })
+                    splashViewModel.login(res.userId, res.accessToken, "1", "1", "", this@SplashActivity)
                 }
                 override fun onError(error: VKError) {}
             })

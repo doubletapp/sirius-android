@@ -21,7 +21,7 @@ import javax.inject.Singleton
 class RetrofitCreatorModule {
 
     companion object {
-        private const val DUMMY_URL = "https://dummy.dummy"
+        private const val DUMMY_URL = "http://sirius.doubletapp.ru/"
         private const val TIMEOUT_SECONDS = 5L
         private const val LOGGING_INTERCEPTOR = "loggingInterceptor"
     }
@@ -50,10 +50,22 @@ class RetrofitCreatorModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(@Named(LOGGING_INTERCEPTOR) loggingInterceptor: Interceptor): OkHttpClient =
+    fun provideOkHttpClient(@Named(LOGGING_INTERCEPTOR) loggingInterceptor: Interceptor,
+                            authorizationKeyValueStorage: AuthorizationKeyValueStorage): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .addInterceptor { chain ->
+                var request = chain.request()
+                val builder = request.newBuilder()
+                var login = authorizationKeyValueStorage.isLogin()
+                if (login)
+                    builder.addHeader("Authorization", "Basic ${authorizationKeyValueStorage.getToken()}")
+                else
+                    builder.addHeader("Authorization", "Basic YWRtaW46MTIzcXdl")
+                request = builder.build()
+                chain.proceed(request)
+            }
+                .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .hostnameVerifier { hostname, session -> hostname.equals(session.peerHost, ignoreCase = true) }
             .build()

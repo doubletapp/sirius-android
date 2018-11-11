@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_survey.*
 import javax.inject.Inject
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import com.doubletapp.sirius.view.MainActivity
 
 
 class SurveyActivity : BaseActivity() {
@@ -72,13 +73,23 @@ class SurveyActivity : BaseActivity() {
         surveyNext.setOnClickListener {
             showNext()
         }
+        surveyEndTest.setOnClickListener {
+            endTest()
+        }
+    }
+
+    fun endTest() {
+        model.testPassed()
+        MainActivity.start(this@SurveyActivity)
     }
 
     fun showNext() {
         if (fragments[currentFragment].onNextPressed()) {
-            if (fragments.count() > currentFragment) {
+            if (fragments.count() > currentFragment + 1) {
                 currentFragment++
                 toggleFragment()
+            } else {
+                endTest()
             }
         }
     }

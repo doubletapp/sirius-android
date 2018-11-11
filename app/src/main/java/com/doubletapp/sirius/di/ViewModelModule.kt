@@ -1,10 +1,10 @@
 package com.doubletapp.sirius.di
 
 import android.arch.lifecycle.ViewModel
-import com.doubletapp.sirius.presentation.JustViewModel
 import com.doubletapp.sirius.presentation.MainViewModel
 import com.doubletapp.sirius.presentation.survey.SurveyViewModel
 import com.doubletapp.sirius.presentation.SettingsViewModel
+import com.doubletapp.sirius.presentation.SplashViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -16,13 +16,13 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+    @ViewModelKey(SettingsViewModel::class)
+    abstract fun bindSettingsViewModel(settingsViewModel: SettingsViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(JustViewModel::class)
-    abstract fun bindJustViewModel(justViewModel: JustViewModel): ViewModel
+    @ViewModelKey(MainViewModel::class)
+    abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
 
     @Singleton
     @Binds
@@ -32,6 +32,6 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(SettingsViewModel::class)
-    abstract fun bindSettingsViewModel(settingsViewModel: SettingsViewModel): ViewModel
+    @ViewModelKey(SplashViewModel::class)
+    abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
 }

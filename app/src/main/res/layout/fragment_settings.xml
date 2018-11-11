@@ -6,6 +6,138 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.SettingsFragment">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/settingsStartGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/settingsEndGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp"/>
+
+    <TextView
+        android:id="@+id/settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/settingsStartGuideline"
+        android:text="Настройки"
+        android:textSize="18sp"
+        android:textColor="@color/text_dark_gray"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/settingsFirstSeparator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toEndOf="@id/settingsStartGuideline"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintTop_toBottomOf="@id/settingsTitle"
+        android:layout_marginTop="24dp"
+        android:background="@color/separator"/>
+
+    <TextView
+        android:id="@+id/settingsNotificationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Уведомления"
+        android:textSize="16sp"
+        android:textColor="@color/text_dark_gray"
+        app:layout_constraintTop_toBottomOf="@id/settingsFirstSeparator"
+        app:layout_constraintStart_toEndOf="@id/settingsStartGuideline"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintHorizontal_bias="0.0"/>
+
+    <TextView
+        android:id="@+id/settingsCourseNotificationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text="Напоминания о лекциях"
+        android:textSize="16sp"
+        android:textColor="@color/text_dark_gray"
+        app:layout_constraintTop_toBottomOf="@id/settingsNotificationTitle"
+        app:layout_constraintStart_toEndOf="@id/settingsStartGuideline"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintHorizontal_bias="0.0"/>
+
+    <Switch
+        android:id="@+id/settingsNotificationSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintTop_toTopOf="@id/settingsNotificationTitle"
+        app:layout_constraintBottom_toBottomOf="@id/settingsNotificationTitle"/>
+
+    <Switch
+        android:id="@+id/settingsCourseNotificationSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintTop_toTopOf="@id/settingsCourseNotificationTitle"
+        app:layout_constraintBottom_toBottomOf="@id/settingsCourseNotificationTitle"/>
+
+    <View
+        android:id="@+id/settingsFirstSeparator2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toEndOf="@id/settingsStartGuideline"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintTop_toBottomOf="@id/settingsCourseNotificationTitle"
+        android:layout_marginTop="32dp"
+        android:background="@color/separator"/>
+
+    <TextView
+        android:id="@+id/settingsRate"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Оценить приложение"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:textColor="@color/text_dark_gray"
+        android:background="?attr/selectableItemBackground"
+        android:drawableEnd="@drawable/ic_chevron_right_black"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/settingsFirstSeparator2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/settingsInfo"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Оценить приложение"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:textColor="@color/text_dark_gray"
+        android:background="?attr/selectableItemBackground"
+        android:drawableEnd="@drawable/ic_chevron_right_black"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/settingsRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/settingsFirstSeparator3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toEndOf="@id/settingsStartGuideline"
+        app:layout_constraintEnd_toStartOf="@id/settingsEndGuideline"
+        app:layout_constraintTop_toBottomOf="@id/settingsInfo"
+        android:background="@color/separator"/>
+
     <Button
         android:id="@+id/settingsLogoutButton"
         android:layout_width="wrap_content"
@@ -14,13 +146,25 @@
         android:paddingEnd="24dp"
         android:drawablePadding="10dp"
         android:text="@string/settings_exit"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/white"
         android:typeface="sans"
-        android:drawableStart="@drawable/ic_sign_out_option"
-        android:background="@drawable/white_button_round_background"
+        android:layout_marginBottom="18dp"
+        android:drawableStart="@drawable/ic_exit_white"
+        android:background="@drawable/violet_button_round_background"
+        android:foregroundTint="@color/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/settingsVersion"/>
+
+    <TextView
+        android:id="@+id/settingsVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Версия 1.1"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
