@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingStart="20dp"
+    android:paddingTop="9dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="9dp">
+
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/feedItemImageLayout"
+        android:layout_width="119dp"
+        android:layout_height="119dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/feedItemImage2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="5dp"
+            tools:src="@tools:sample/backgrounds/scenic" />
+    </android.support.design.card.MaterialCardView>
+
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/feedItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="169dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="5dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/feedItemImageLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/feedItemLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/feedItemFriend1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="14dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:riv_corner_radius="15dp"
+                tools:src="@tools:sample/avatars" />
+
+            <FrameLayout
+                android:id="@+id/feedItemFriend2Layout"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="21dp"
+                android:background="@drawable/feed_item_friend_background"
+                app:layout_constraintBottom_toBottomOf="@id/feedItemFriend1"
+                app:layout_constraintStart_toStartOf="@id/feedItemFriend1"
+                app:layout_constraintTop_toTopOf="@id/feedItemFriend1">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/feedItemFriend2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:riv_corner_radius="15dp"
+                    tools:src="@tools:sample/avatars" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/feedItemFriend3Layout"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="21dp"
+                android:background="@drawable/feed_item_friend_background"
+                app:layout_constraintBottom_toBottomOf="@id/feedItemFriend2Layout"
+                app:layout_constraintStart_toStartOf="@id/feedItemFriend2Layout"
+                app:layout_constraintTop_toTopOf="@id/feedItemFriend2Layout">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/feedItemFriend3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:riv_corner_radius="15dp"
+                    tools:src="@tools:sample/avatars" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="10sp"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/text_dark_gray"
+                android:text="Дмитрий, Анна, Мария и еще 15
+ваших друзей идут на этот курс"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/feedItemFriend2Layout"
+                app:layout_constraintBottom_toBottomOf="@id/feedItemFriend2Layout"
+                app:layout_constraintStart_toEndOf="@id/feedItemFriend3Layout"/>
+
+            <TextView
+                android:id="@+id/feedItemData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="119dp"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="30.10.18"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/feedItemText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="Сколтех-Сириус: программа индивидуального тьюторинга «турбо-сайнс»"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/feedItemData"
+                app:layout_constraintTop_toBottomOf="@id/feedItemData" />
+
+            <TextView
+                android:id="@+id/feedItemSubText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="Сколтех-Сириус: программа индивидуального тьюторинга «турбо-сайнс»"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="@id/feedItemText"
+                app:layout_constraintStart_toStartOf="@id/feedItemText"
+                app:layout_constraintTop_toBottomOf="@id/feedItemText" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
+
+</android.support.constraint.ConstraintLayout>
