@@ -12,5 +12,6 @@ annotation class FeedItemType {
         const val TYPE_STORIES = 11
         const val TYPE_HEADER = 12
         const val TYPE_FEED_CARD = 13
+        const val TYPE_FEED_CARD_2 = 14
     }
 }
