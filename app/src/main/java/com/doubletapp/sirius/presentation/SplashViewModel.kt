@@ -3,10 +3,8 @@ package com.doubletapp.sirius.presentation
 import android.content.Context
 import com.doubletapp.sirius.base.AuthorizationKeyValueStorage
 import com.doubletapp.sirius.base.BaseViewModel
-import com.doubletapp.sirius.di.RetrofitCreatorModule
 import com.doubletapp.sirius.domain.login.LoginInteractor
 import com.doubletapp.sirius.view.MainActivity
-import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 import java.util.*
 import javax.inject.Inject

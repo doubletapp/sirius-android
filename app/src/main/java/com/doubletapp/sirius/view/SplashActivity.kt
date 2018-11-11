@@ -2,7 +2,6 @@ package com.doubletapp.sirius.view
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
@@ -10,7 +9,6 @@ import android.transition.TransitionManager
 import android.view.View
 import com.doubletapp.sirius.R
 import com.doubletapp.sirius.base.BaseActivity
-import com.doubletapp.sirius.extensions.toast
 import com.doubletapp.sirius.presentation.SplashViewModel
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
@@ -59,7 +57,12 @@ class SplashActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                 override fun onResult(res: VKAccessToken) {
-                    splashViewModel.login(res.userId, res.accessToken, "1", "1", "", this@SplashActivity)
+                    splashViewModel.login(res.userId,
+                            res.accessToken,
+                            "1",
+                            "1",
+                            "",
+                            this@SplashActivity)
                 }
                 override fun onError(error: VKError) {}
             })
